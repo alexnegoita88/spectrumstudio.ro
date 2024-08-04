@@ -1,5 +1,5 @@
 <header class="bg-black text-white shadow-md relative z-20 ">
-    <div class="container mx-auto px-4 flex justify-between items-center h-16">
+    <div class="container mx-auto px-4 flex justify-between items-center h-10">
         <a href="/" class="text-2xl font-bold">Studio Ceramica</a>
         <!-- Toggle button for mobile menu -->
         <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
