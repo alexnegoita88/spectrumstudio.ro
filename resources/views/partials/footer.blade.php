@@ -9,7 +9,6 @@
 
             <!-- Section 2 -->
             <div class="flex-1 text-center">
-                <h2 class="text-white text-xl font-bold mb-4">Studio Ceramica</h2>
                 <p class="text-white">
                     Ca importator direct, dispunem de toate certificatele de calitate și conformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materialele de finisare.
                 </p>
@@ -20,7 +19,7 @@
                 <h2 class="text-white text-xl font-bold mb-4">Social</h2>
                 <div class="flex justify-center space-x-4">
                     <a 
-                        href="https://www.facebook.com/webceramica/" 
+                        href="#" 
                         aria-label="Facebook" 
                         target="_blank" 
                         rel="noopener noreferrer" 
@@ -32,7 +31,7 @@
                         </svg>
                     </a>
                     <a 
-                        href="https://instagram.com/studio_ceramica" 
+                        href="#" 
                         aria-label="Instagram" 
                         target="_blank" 
                         rel="noopener noreferrer" 
