@@ -1,6 +1,6 @@
-<header class="bg-black text-white shadow-md relative z-20 ">
-    <div class="container mx-auto px-4 flex justify-between items-center h-10">
-        <a href="/" class="text-2xl font-bold">Studio Ceramica</a>
+<header class="bg-gray-900 text-white shadow-md relative z-20 ">
+    <div class="container mx-auto px-4 flex justify-between items-center h-14">
+        <a href="/" class="text-2xl font-bold">SpectrumStudio</a>
         <!-- Toggle button for mobile menu -->
         <button id="menu-toggle" class="lg:hidden text-white focus:outline-none">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
