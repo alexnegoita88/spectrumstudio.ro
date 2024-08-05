@@ -1,6 +1,6 @@
-@extends('layouts.app')
+@extends('_layouts.app')
 
-@section('title', 'Acasă')
+@section('title', 'Acasa')
 
 @section('content')
 
@@ -37,7 +37,7 @@
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
                                 <a href="/products/store" >Bai</a>
                             </h2>
-                            <a href="/products/store" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
+                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
                                 Caută online
                             </a>
                         </div>
@@ -56,7 +56,7 @@
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
                                 <a href="/products/store" >Living & Dormitor</a>
                             </h2>
-                            <a href="/products/store" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
+                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
                                 Caută online
                             </a>
                         </div>
@@ -71,7 +71,7 @@
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
                                 <a href="/products/store" >Terase</a>
                             </h2>
-                            <a href="/products/store" class="inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
+                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
                                 Caută online
                             </a>
                         </div>
@@ -93,7 +93,7 @@
             <!-- Second Column -->
             <div class="bg-gray-300 flex flex-col justify-center items-center">
                 <h3 class="text-3xl font-bold mb-4">De pe blog</h3>
-                <a href="#" class="font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">VIZITEAZĂ BLOGUL</a>
+                <a href="#" class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">VIZITEAZĂ BLOGUL</a>
             </div>
         </div>
 
@@ -102,7 +102,7 @@
             <!-- First Column -->
             <div class="bg-gray-300 flex flex-col justify-center items-center">
                 <h3 class="text-3xl font-bold mb-4">Conectează-te cu social media</h3>
-                <a href="#" class="font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">FOLLOW ON INSTAGRAM</a>
+                <a href="#" class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">FOLLOW ON INSTAGRAM</a>
             </div>
             <!-- Second Column -->
             <div class="bg-white bg-cover bg-center bg-no-repeat" style="background-image: url(https://studio-ceramica.ro/wp-content/uploads/2020/11/studioceramica-design.jpg);"></div>
@@ -163,17 +163,15 @@
         <div class="relative container mx-auto h-full flex items-center justify-center py-12">
             <div class="flex flex-col items-center">
                 <h2 class="text-4xl font-bold text-white text-center mb-4">Creat pentru tine</h2>
-                <p class="text-lg font-bold text-white mb-6">
-                    <mark class="bg-transparent text-white">
-                        Inscrie-te să primești noutăți și ai 10 % reducere la următoarea comandă.
-                    </mark>
+                <p class="text-lg font-bold mb-6 text-white text-shadow-md">
+                    Inscrie-te să primești noutăți și ai 10 % reducere la următoarea comandă.
                 </p>
                 <form class="w-full max-w-md flex items-center space-x-4" action="" method="post">
                     <div class="flex-1">
                         <input name="email" id="email" type="email" placeholder="Completează e-mail-ul tău aici" class="w-full px-4 py-2 border rounded" required>
                     </div>
                     <div>
-                        <button type="submit" class="px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600">
+                        <button type="submit" class="duration-300 px-6 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600">
                             Abonare
                         </button>
                     </div>

@@ -1,4 +1,4 @@
-<header class="bg-black text-white shadow-md relative z-20 ">
+<header class="bg-gray-900 text-white shadow-md relative z-20 ">
     <div class="container mx-auto px-4 flex justify-between items-center h-14">
         <a href="/" class="text-2xl font-bold">SpectrumStudio</a>
         <!-- Toggle button for mobile menu -->
