@@ -15,7 +15,7 @@ class ProductsController extends Controller
         return view('products.store');
     }
 
-    public function one()
+    public function show()
     {
         return view('products.one');
     }
