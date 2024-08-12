@@ -158,7 +158,7 @@
 
 
     <!-- Full Width Section Wrapper -->
-    <section class="relative bg-cover bg-center h-[500px]" style="background-image: url('https://studio-ceramica.ro/wp-content/uploads/2020/11/acasa-studio-subscriber.jpg');">
+    <section class="relative bg-cover bg-center h-[500px] parallax-bg" style="background-image: url('https://studio-ceramica.ro/wp-content/uploads/2020/11/acasa-studio-subscriber.jpg');">
         <div class="absolute inset-0 bg-opacity-50 bg-gray-900"></div>
         <div class="relative container mx-auto h-full flex items-center justify-center py-12">
             <div class="flex flex-col items-center">
@@ -183,4 +183,5 @@
             </div>
         </div>
     </section>
+
 @endsection
