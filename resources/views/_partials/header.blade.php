@@ -48,9 +48,12 @@
                     </svg>
                 </button>
             </div>
-            <form action="/search" method="GET" class="mt-4 text-center">
-                <input type="text" name="query" placeholder="Search..." class="flex-grow w-3/4 p-2 border border-gray-300  rounded-l focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                <button type="submit" class="w-2/12 md:w-1/6 bg-indigo-600 text-white py-2 rounded-r hover:bg-indigo-700">Caută</button>
+            <form action="/search" method="GET" class="mt-4 text-center flex justify-between">
+
+                <input type="text" name="query" placeholder="Search..." class="w-3/4 flex-grow p-2 border border-gray-300 focus:outline-none text-gray-950 rounded-l">
+                <button type="submit" class="w-1/4 md:w-1/6 bg-gray-600 text-white py-2 rounded-r hover:bg-gray-900">Caută</button>
+
+
             </form>
         </div>
     </div>
@@ -80,9 +83,9 @@
 
                 <!-- Collapsible Search Input -->
                 <li id="search-input-container" class="py-2 hidden">
-                    <form action="/search" method="GET" class="flex">
-                        <input type="text" name="query" placeholder="Search..." class="flex-grow p-2 border border-gray-300 text-gray-950 rounded-l focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                        <button type="submit" class="w-2/12 md:w-1/6 bg-indigo-600 text-white py-2 rounded-r hover:bg-indigo-700">Caută</button>
+                    <form action="/search" method="GET" class="flex justify-between ">
+                        <input type="text" name="query" placeholder="Search..." class="w-3/4 flex-grow p-2 border border-gray-300 focus:outline-none text-gray-950 rounded-l">
+                        <button type="submit" class="w-1/4 md:w-1/6 bg-gray-600 text-white py-2 rounded-r hover:bg-gray-900">Caută</button>
                     </form>
                 </li>
 
