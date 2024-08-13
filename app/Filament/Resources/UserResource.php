@@ -52,13 +52,23 @@ class UserResource extends Resource
                     ->required()
                     ->maxLength(255)
                     ->hidden(function () {
-                        if (Auth::id() != request()->route('record')) {
+                        // dump(Auth::id(), request()->route('record'));
+                        // dd((int) request()->route('record'));
+                        // dd( (int) Auth::id() ===  (int) request()->route('record'));
+
+                        if ((int) request()->route('record') === 0) {
+                            return false;
+                        }
+                        
+                        if ((int) Auth::id() !== (int) request()->route('record')) {
                             return true;
                         }
+                        
                         return false;
+                        
                     })
                     ->columnSpan(2)
-                    ->autocomplete(fn() => false)
+                    ->autocomplete(false)
                     ->extraAttributes(['class' => 'w-1/2']), // Set the width using Tailwind CSS class
 
             ])->columns(3)
