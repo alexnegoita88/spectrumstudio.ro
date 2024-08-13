@@ -8,12 +8,14 @@
             </svg>
         </button>
         <nav id="menu" class="lg:flex lg:items-center lg:space-x-6 hidden">
-            <ul class="flex space-x-6">
+            <ul class="flex space-x-6 h-14 items-center">
                 <li><a href="/" class="hover:text-gray-400">Acasa</a></li>
                 <li><a href="/about" class="hover:text-gray-400">Despre Noi</a></li>
-                <li class="relative group">
-                    <button class="w-full text-center block hover:text-gray-400">Produse</button>
-                    <ul class="absolute left-0 hidden w-48 bg-black border border-gray-800 rounded-md shadow-lg group-hover:block">
+                <li class="relative group ">
+                    <button class="w-full h-14 text-center block hover:text-gray-400">Produse</button>
+                    
+                    
+                    <ul class="absolute left-0 hidden w-48 bg-gray-900 border border-gray-800 shadow-lg group-hover:block">
                         <li class="group relative px-0 py-2 mx-0 border-t border-gray-800 first:border-t-0">
                             <a href="/products/all" class="block px-4 py-2 hover:text-gray-300">Toate produsele</a>
                         </li>
