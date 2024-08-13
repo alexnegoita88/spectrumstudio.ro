@@ -16,6 +16,24 @@
 </head>
 <body class="bg-gray-100">
 
+    @php
+        
+        $signDate = new DateTime("2024-07-26");
+
+        $currentDate = new DateTime('now');
+
+        $endDate = $signDate->add(new DateInterval('P45D'));
+
+
+        $theDiff = $endDate->diff($currentDate);
+
+        if (env('APP_ENV') == 'local' && env('APP_DEBUG') == true) {
+            // dump($signDate->format('d-M-Y'),$currentDate->format('d-M-Y'), $endDate->format('d-M-Y'));
+            dump("TIME LEFT UNTILL DEPLOYMENT:", $theDiff);
+        }
+
+    @endphp
+
     @include('_partials.header')
 
     <main>
