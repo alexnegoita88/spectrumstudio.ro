@@ -16,4 +16,14 @@ class EditProject extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        // Debugging: Check if this method is being executed
+        // dump('mutateFormDataBeforeSave is working', $data);
+    
+        $data['updater_id'] = auth()->id();
+        return $data;
+    }
+
 }
