@@ -25,6 +25,7 @@ Route::get('/projects/{slug}', [ProjectsController::class, 'show'])->name('produ
 
 Route::get('/news', [NewsController::class, 'index'])->name('news_all');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news_show');
+Route::get('/news/author/{author}', [NewsController::class, 'author'])->name('news_author');
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 Route::post('/contact', [ContactController::class, 'processContact']);
