@@ -23,7 +23,7 @@
 
         <!-- Description -->
         <p class="text-gray-600 text-lg mt-4 text-center">
-            Cu o activitate de peste 10 ani in Romania, Brandul „<strong>SPECTRUM STUDIO</strong>” furnizeaza un pachet complet de soluții pentru amenajarea proiectelor rezidențiale și proiectelor industriale. STUDIO CERAMICA, ca importator direct, dispune de toate certificatele de calitate și coformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materiale de finisare.
+            Cu o activitate de peste 10 ani in Romania, Brandul „<strong>SPECTRUM STUDIO</strong>” furnizeaza un pachet complet de soluții pentru amenajarea proiectelor rezidențiale și proiectelor industriale. SPECTRUM STUDIO, ca importator direct, dispune de toate certificatele de calitate și coformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materiale de finisare.
         </p>
 
         <!-- Spacer -->
