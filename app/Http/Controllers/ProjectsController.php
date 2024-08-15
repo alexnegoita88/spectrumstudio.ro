@@ -14,9 +14,18 @@ class ProjectsController extends Controller
         return view('projects.index', ['projects' => $projects]);
     }
 
-    public function show()
+    public function show(Request $request)
     {
-        return view('projects.show');
+
+        $project = Project::where('active', true)
+        ->where('published_at', '<', Carbon::now())
+        ->where('slug', $request->slug)
+        ->with('user')
+        ->first();        
+
+        return view('projects.show', [
+            'project' => $project,
+        ]);
     }
 
 }

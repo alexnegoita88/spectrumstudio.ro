@@ -7,7 +7,7 @@
     <header class="w-full bg-cover bg-center relative" style="background-image: url({{ asset('images/' . 'Green-Future-Residence-–-COMPLEX-78-Vile-in-Mogosoaia.jpg') }});">
         <!-- Overlay for better text visibility -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
-        <div class="relative z-10 flex items-center justify-center h-64">
+        <div class="relative z-10 flex items-center justify-center h-80">
             <h2 class="text-6xl font-bold text-center text-white">Proiecte</h2>
         </div>
     </header>

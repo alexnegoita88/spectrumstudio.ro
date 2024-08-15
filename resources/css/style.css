@@ -1,7 +1,98 @@
 
 .parallax-bg {
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* CAROUSEL */
+
+
+
+.carousel-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  gap: 1rem; /* Adjusts the gap between carousel items */
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+  min-width: 33.3333%;
+  box-sizing: border-box;
+
+  flex: 1; /* Ensures each item takes equal space */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  min-height: 100%; /* Ensure the height is consistent */
+
+}
+
+.carousel-item article {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Make sure the article takes full height */
+  justify-content: space-between; /* Space the content inside evenly */
+}
+
+.carousel-item img {
+  display: block;
+  width: 100%; /* Make sure images are responsive */
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Set a maximum height for images */
+  object-fit: cover; /* Ensure the image covers the designated space */
+
+}
+
+.carousel-item header {
+  flex: 0 0 auto; /* Prevents the header from stretching */
+}
+
+.carousel-item .text-gray-700 {
+  flex: 1; /* Allow the content to take the remaining space */
+  margin-top: 1rem; /* Space between header and content */
+}
+
+.carousel-item footer {
+  flex: 0 0 auto; /* Keeps footer at the bottom */
+  margin-top: auto; /* Push the footer to the bottom */
+}
+
+.carousel-item h2 {
+  margin: 0; /* Reset margin */
+  padding: 0; /* Reset padding */
+}
+
+.carousel-item .p-6 {
+  padding: 1rem; /* Consistent padding inside the article */
+}
+
+.carousel-prev,
+.carousel-next {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+/* END CAROUSEL */
