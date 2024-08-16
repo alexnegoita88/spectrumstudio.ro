@@ -137,6 +137,7 @@ class PostResource extends Resource
                 ,
 
                 TextColumn::make('title')
+                    ->limit(80)
                     ->toggleable(true)
                     ->searchable()
                     ->sortable()
