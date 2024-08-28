@@ -106,6 +106,7 @@ class ProductsResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+        
             ->columns([
                 TextColumn::make('id')
                 ->toggleable(true)
