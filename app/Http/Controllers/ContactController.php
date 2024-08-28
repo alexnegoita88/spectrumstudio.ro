@@ -53,7 +53,7 @@ class ContactController extends Controller
             ]);
             
             foreach (User::all() as $user) {
-                Mail::send('emails.contact_admin', ['data' => $submission, 'content' => "Un utilizator a completat formularul de contact din site."], function ($message) use ($user) {
+                Mail::send('emails.contact_admin', ['data' => $submission, 'content' => "Un utilizator a completat formularul de contact din site.", 'name' => $user->name], function ($message) use ($user) {
                     $message->to($user->email)
                         ->subject('New submission from Contact Form'  );
                 });

@@ -12,7 +12,6 @@
 
         <tr align="center" width="570" height="100">
             <td colspan="3">
-                <p style="font-size: 24px; font-weight: bolder; text-align: center;">Salut, {{ $name }}</p>
             </td>
         </tr>
         <tr align="center" width="570" height="100">
