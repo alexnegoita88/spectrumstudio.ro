@@ -71,6 +71,7 @@ document.querySelectorAll('.swiper-slide img').forEach((image) => {
 // Event listener for closing modal
 document.getElementById('close-modal').addEventListener('click', closeModal);
 
+
 // Optional: Close the modal when clicking outside the gallery
 document.getElementById('modal').addEventListener('click', (event) => {
     if (event.target === event.currentTarget) {
