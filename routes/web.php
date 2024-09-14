@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
@@ -16,13 +17,15 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 
-Route::get('/products/all', [ProductsController::class, 'all'])->name('products_all');
+Route::get('/categories/all', [CategoriesController::class, 'all'])->name('categories_all');
+Route::get('/category/{slug}', [CategoriesController::class, 'one'])->name('category');
+
 Route::get('/products/store', [ProductsController::class, 'store'])->name('products_store');
 Route::get('/product/{slug}', [ProductsController::class, 'show'])->name('product');
 
 
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects_all');
-Route::get('/projects/{slug}', [ProjectsController::class, 'show'])->name('products_show');
+Route::get('/projects/{slug}', [ProjectsController::class, 'show'])->name('projects_show');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news_all');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news_show');

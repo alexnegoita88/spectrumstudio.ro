@@ -17,10 +17,10 @@
                     
                     <ul class="absolute left-0 hidden w-48 bg-gray-900 border border-gray-800 shadow-lg group-hover:block">
                         <li class="group relative px-0 py-2 mx-0 border-t border-gray-800 first:border-t-0">
-                            <a href="/products/all" class="block px-4 py-2 hover:text-gray-300">Toate produsele</a>
+                            <a href="{{ route('categories_all') }}" class="block px-4 py-2 hover:text-gray-300">Toate produsele</a>
                         </li>
                         <li class="group relative px-0 py-2 mx-0 border-t border-gray-800">
-                            <a href="/products/store" class="block px-4 py-2 hover:text-gray-300">Magazin</a>
+                            <a href="{{ route('products_store') }}" class="block px-4 py-2 hover:text-gray-300">Magazin</a>
                         </li>
                     </ul>
                 </li>
@@ -102,10 +102,10 @@
                     <button class="w-full text-left block px-4 py-3 hover:text-gray-400">Produse</button>
                     <ul class="ml-10 flex flex-col">
                         <li class="border-t border-gray-800">
-                            <a href="/products/all" class="block px-4 py-3 hover:text-gray-400">Toate produsele</a>
+                            <a href="{{ route('categories_all') }}" class="block px-4 py-3 hover:text-gray-400">Toate produsele</a>
                         </li>
                         <li class="border-t border-gray-800">
-                            <a href="/products/store" class="block px-4 py-3 hover:text-gray-400">Magazin</a>
+                            <a href="{{ route('products_store') }}" class="block px-4 py-3 hover:text-gray-400">Magazin</a>
                         </li>
                     </ul>
                 </li>

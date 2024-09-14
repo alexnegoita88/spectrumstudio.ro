@@ -6,6 +6,7 @@ use App\Filament\Resources\CategoriesResource\Pages;
 use App\Filament\Resources\CategoriesResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
+use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Group;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Section;
@@ -64,6 +65,22 @@ class CategoriesResource extends Resource
                     ])
                 ])->columns(2)->columnSpan(2),
                 Group::make()->schema([
+                    Section::make('Meta')->schema([
+                        FileUpload::make('featured_picture')
+                            ->label('Featured Image')
+                            ->required()
+                            ->multiple(false)
+                            ->disk('public')
+                            ->preserveFilenames()
+                            ->downloadable()
+                            ->openable()
+                            ->imageEditor()
+                            ->imageEditorAspectRatios(['4:3','3:4', '16:9', '9:16', '1:1'])
+                            ->maxFiles(1)
+                            ->columnSpanFull()
+        
+    
+                    ]),
                     Section::make('Meta')->schema([
                         TextInput::make('slug')
                             ->required()
