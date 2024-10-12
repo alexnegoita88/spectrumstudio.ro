@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LegalController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProjectsController;
 use App\Models\FormSubmission;
@@ -43,3 +44,10 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 Route::prefix('legal')->group(function () {
     Route::get('/terms',  [LegalController::class, 'tandc'])->name('terms');
 });
+
+
+Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter_subscribe');//->middleware('throttle:2,1'); // 2 requests per minute;
+Route::get('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter_subscribe');//->middleware('throttle:2,1'); // 2 requests per minute;
+Route::get('/newsletter/successful_subscription', [NewsletterController::class, 'successful_subscribe'])->name('successful_subscription');
+Route::get('/newsletter/unsubscribe', [NewsletterController::class, 'unsubscribe'])->name('newsletter_unsubscribe');//->middleware('throttle:2,1'); // 2 requests per minute;
+Route::get('/newsletter/successful_unsubscription', [NewsletterController::class, 'successful_unsubscribe'])->name('successful_unsubscription');

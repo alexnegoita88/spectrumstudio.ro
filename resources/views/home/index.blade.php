@@ -166,7 +166,8 @@
                 <p class="text-lg font-bold mb-6 text-white text-shadow-md">
                     Inscrie-te să primești noutăți și ai 10 % reducere la următoarea comandă.
                 </p>
-                <form class="w-full max-w-md flex items-center space-x-4" action="" method="post">
+                <form class="w-full max-w-md flex items-center space-x-4" action="{{ route('newsletter_subscribe') }}" method="post">
+                    @csrf
                     <div class="flex-1">
                         <input name="email" id="email" type="email" placeholder="Completează e-mail-ul tău aici" class="w-full px-4 py-2 border rounded" required>
                     </div>

@@ -31,7 +31,7 @@
             // dump($signDate->format('d-M-Y'),$currentDate->format('d-M-Y'), $endDate->format('d-M-Y'));
             dump("TIME LEFT UNTILL DEPLOYMENT:", $theDiff);
         }
-
+        dump("END DATE:" . $endDate->format('d-M-Y'));
     @endphp
 
     @include('_partials.header')
