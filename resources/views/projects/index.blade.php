@@ -31,7 +31,7 @@
                 <div class="bg-gray-900  shadow-md overflow-hidden">
                     <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $project->featured_image) }}" alt="BY THE SEA PANORAMIS RESIDENCE MAMAIA NORD">
                     <div class="p-4">
-                        <a href="{{ route('products_show', $project->slug) }}">
+                        <a href="{{ route('projects_show', $project->slug) }}">
                             <h3 class="text-lg font-semibold text-gray-200 hover:text-white">{{ $project->title }}</h3>
                         </a>
                     </div>
