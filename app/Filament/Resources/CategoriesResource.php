@@ -16,6 +16,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
@@ -105,6 +106,12 @@ class CategoriesResource extends Resource
                 ->sortable()
                 ,
 
+                ImageColumn::make('featured_picture')
+                ->label('Picture')
+                ->toggleable(true)
+                ->toggledHiddenByDefault(true)
+                ,
+                
                 TextColumn::make('name')
                     ->limit(80)
                     ->toggleable(true)

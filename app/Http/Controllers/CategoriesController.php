@@ -13,7 +13,7 @@ class CategoriesController extends Controller
         /*
         /   Shows all categories
         */
-        return view('categories.all', [
+        return view('categories.all_new', [
             'categories' => Category::all()
         ]);
     }

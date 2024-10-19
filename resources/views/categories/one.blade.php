@@ -64,7 +64,7 @@
                 <!-- Results Counter -->
                 @if($products->total() > 0)
                     <div class="text-gray-600 font-medium">
-                        Showing {{ $products->firstItem() }} - {{ $products->lastItem() }} of {{ $products->total() }} products
+                        Afiseaza {{ $products->firstItem() }} - {{ $products->lastItem() }} din {{ $products->total() }} articole
                     </div>
 
 
