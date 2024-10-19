@@ -26,7 +26,7 @@ Route::get('/product/{slug}', [ProductsController::class, 'show'])->name('produc
 
 
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects_all');
-Route::get('/projects/{slug}', [ProjectsController::class, 'show'])->name('projects_show');
+Route::get('/project/{slug}', [ProjectsController::class, 'show'])->name('projects_show');
 
 Route::get('/news', [NewsController::class, 'index'])->name('news_all');
 Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news_show');

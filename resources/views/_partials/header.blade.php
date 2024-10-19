@@ -24,10 +24,9 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="/design" class="hover:text-gray-400">Design & Arhitecti</a></li>
-                <li><a href="/projects" class="hover:text-gray-400">Proiecte</a></li>
-                <li><a href="/news" class="hover:text-gray-400">Noutati</a></li>
-                <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
+                <li><a href="{{ route('projects_all') }}" class="hover:text-gray-400">Proiecte</a></li>
+                <li><a href="{{ route('news_all')}}" class="hover:text-gray-400">Noutati</a></li>
+                <li><a href="{{ route('contact') }}" class="hover:text-gray-400">Contact</a></li>
                 <li>
                     <a id="search-icon" href="javascript:void(0);" class="hover:text-gray-400">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -109,17 +108,15 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="border-t border-gray-800">
-                    <a href="/design" class="block px-4 py-3 hover:text-gray-400">Design &amp; Arhitecti</a>
+                    <a href="{{ route('projects_all') }}" class="block px-4 py-3 hover:text-gray-400">Proiecte</a>
                 </li>
                 <li class="border-t border-gray-800">
-                    <a href="/projects" class="block px-4 py-3 hover:text-gray-400">Proiecte</a>
+                    <a href="{{ route('news_all') }}" class="block px-4 py-3 hover:text-gray-400">Noutati</a>
                 </li>
                 <li class="border-t border-gray-800">
-                    <a href="/news" class="block px-4 py-3 hover:text-gray-400">Noutati</a>
-                </li>
-                <li class="border-t border-gray-800">
-                    <a href="/contact" class="block px-4 py-3 hover:text-gray-400">Contact</a>
+                    <a href="{{ route('contact') }}" class="block px-4 py-3 hover:text-gray-400">Contact</a>
                 </li>
             </ul>
         </div>
