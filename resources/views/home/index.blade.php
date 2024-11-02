@@ -93,7 +93,7 @@
             <!-- Second Column -->
             <div class="bg-gray-300 flex flex-col justify-center items-center">
                 <h3 class="text-3xl font-bold mb-4">De pe blog</h3>
-                <a href="#" class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">VIZITEAZĂ BLOGUL</a>
+                <a href="{{ route('news_all') }}" class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">VIZITEAZĂ BLOGUL</a>
             </div>
         </div>
 
