@@ -15,12 +15,7 @@
     <div class="container max-w-6xl mx-auto px-4 py-8 mb-8">
 
         <!-- Section Subheader -->
-        <h2 class="mt-8 text-2xl font-semibold text-gray-700 text-center">Proiecte Spectrum Studio</h2>
-
-        <!-- Description -->
-        <p class="text-gray-600 text-lg my-8 text-center">
-            Cu o activitate de peste 10 ani in Romania, Brandul „<strong>SPECTRUM STUDIO</strong>” furnizeaza un pachet complet de soluții pentru amenajarea proiectelor rezidențiale și proiectelor industriale. SPECTRUM STUDIO, ca importator direct, dispune de toate certificatele de calitate și coformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materiale de finisare.
-        </p>
+        <h2 class="my-16 text-2xl font-semibold text-gray-700 text-center">Proiecte Spectrum Studio</h2>
 
         @if ($projects)
         <!-- Gallery Grid -->

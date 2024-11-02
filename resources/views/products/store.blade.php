@@ -76,8 +76,7 @@
                         <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="Product 1"
                             class="w-full h-48 object-cover rounded-sm mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($product->name) }}</h3>
-                        <p>{{ $product->created_at }}</p>
-                        <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Solicita oferta</a>
+                        <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
                     </div>
                 @endforeach
             </div>

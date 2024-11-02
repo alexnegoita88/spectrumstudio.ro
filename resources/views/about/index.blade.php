@@ -31,31 +31,6 @@
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="py-12 bg-gray-300">
-
-        <div class="container max-w-8xl mx-auto px-4 py-12">
-            <h2 class="text-4xl font-bold mb-10 text-center">Meet Our Team</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 shadow rounded text-center">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-semibold mb-2">John Doe</h3>
-                    <p>Founder & CEO</p>
-                </div>
-                <div class="bg-white p-6 shadow rounded text-center">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
-                    <p>Creative Director</p>
-                </div>
-                <div class="bg-white p-6 shadow rounded text-center">
-                    <img src="https://via.placeholder.com/150" alt="Team Member" class="w-32 h-32 rounded-full mx-auto mb-4">
-                    <h3 class="text-xl font-semibold mb-2">Alice Johnson</h3>
-                    <p>Lead Designer</p>
-                </div>
-            </div>
-        </div>
-        
-    </section>
 
     <!-- Contact Section -->
     <section class="parallax-bg  justify-center text-center text-white" style="background-image: url('https://studio-ceramica.ro/wp-content/uploads/2020/11/contact-studioceramica-3.jpg')">

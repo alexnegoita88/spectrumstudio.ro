@@ -4,15 +4,6 @@
 
 @section('content')
 
-<section role="banner" style="background-image: url('{{ url(Storage::url($category->featured_picture)) }}')"
-    class="relative h-80 bg-center bg-no-repeat bg-scroll">
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="relative h-full flex items-center justify-center">
-        <header class="text-center">
-            <h1 class="text-4xl font-bold text-white">{{ $category->name }}</h1>
-        </header>
-    </div>
-</section>
 
 <section class="container max-w-6xl mx-auto p-6">
 
@@ -89,8 +80,7 @@
                             <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="{{ $product->name }}"
                                 class="w-full h-48 object-cover rounded-sm mb-4">
                             <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($product->name) }}</h3>
-                            <p>{{ $product->created_at }}</p>
-                            <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Solicita oferta</a>
+                            <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
                         </div>
                     @endforeach
                 </div>

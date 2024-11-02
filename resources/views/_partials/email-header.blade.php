@@ -30,9 +30,6 @@
             <a href=" {{ route('projects_all') }}" style="text-decoration: none; color: #000000;">Proiecte</a>
          </td>
          <td style="text-align: center; width: 20%; ">
-            <a href=" {{ route('news_all') }}" style="text-decoration: none; color: #000000;">Noutati</a>
-         </td>
-         <td style="text-align: center; width: 20%; ">
             <a href=" {{ route('contact') }}" style="text-decoration: none; color: #000000;">Contact</a>
          </td>
       </tr>
