@@ -3,14 +3,23 @@
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-center space-y-8 md:space-y-0 md:space-x-8">
                 <!-- Section 1 -->
-                <div class="flex-1 text-center text-4xl font-bold">
-                    <a href="/">SpectrumStudio</a>
+                <div class="flex-1 text-center text-4xl font-bold mx-auto">
+                    <a href="{{ route('home') }}">
+                        <img src="{{ url('/images/Logo_Spectrum.png') }}" alt="Logo SpectrumStudio" class="logo">
+                    </a>
                 </div>
 
                 <!-- Section 2 -->
                 <div class="flex-1 text-center">
                     <p class="text-white">
                         Ca importator direct, dispunem de toate certificatele de calitate și conformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materialele de finisare.
+                    </p>
+                    <p class="border-t-2 border-gray-700 mt-4 py-2">
+                        <ul>
+                            <li><a href="">Termeni si conditii</a></li>
+                            <li><a href="">Politica de confidentialitate</a></li>
+                            <li><a href="">Politica cookie</a></li>
+                        </ul>
                     </p>
                 </div>
 
@@ -47,7 +56,7 @@
             </div>
         </div>
     </section>
-    <div class="container mx-auto text-center">
+    <section class="container mx-auto text-center border-t-2 border-gray-700 py-4">
         <p>&copy; {{ date('Y') }} SpectrumStudio. Toate drepturile rezervate.</p>
-    </div>
+    </section>
 </footer>
