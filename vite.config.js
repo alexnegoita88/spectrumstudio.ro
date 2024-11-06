@@ -21,5 +21,5 @@ export default defineConfig({
         preprocessorOptions: {
             // You can add your preprocessor options here
           },
-    }
+    },
 });

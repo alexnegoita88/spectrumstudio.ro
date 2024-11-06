@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     <!-- Hero Section -->
     <section class="relative bg-cover bg-center h-50" style="background-image: url('https://studio-ceramica.ro/wp-content/uploads/2022/10/policroma-studio-ceramica.jpg');">
         <div class="max-w-6xl mx-auto">
@@ -25,20 +24,20 @@
             <h2 class="text-4xl font-bold text-center mb-12">Cele mai noi colectii de produse</h2>
 
             <!-- Grid Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[630px]">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:max-h-[630px]">
                 <!-- First Column (Full Height) -->
                 <div class="relative flex flex-col max-h-[630px] overflow-hidden">
                     <div class="relative flex-1 flex">
-                        <img src="https://studio-ceramica.ro/wp-content/uploads/2022/10/bai-studio-ceramica.jpg"
+                        <img src="{{ Storage::url($categories[0]->featured_picture) }}"
                             alt="bai studio ceramica"
                             class="object-cover w-full h-full"
                             style="object-position: 26% 81%;">
                         <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center p-4">
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
-                                <a href="/products/store" >Bai</a>
+                                <a href="{{ route('category', $categories[0]->slug) }}" >{{ $categories[0]->name }}</a>
                             </h2>
-                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
-                                Caută online
+                            <a href="{{ route('category', $categories[0]->slug) }}" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
+                                Vezi produsele
                             </a>
                         </div>
                     </div>
@@ -48,32 +47,28 @@
                 <div class="relative flex flex-col max-h-[630px] overflow-hidden gap-6">
                     <!-- First Element in Second Column -->
                     <div class="relative flex-1 flex h-1/2">
-                        <img src="https://studio-ceramica.ro/wp-content/uploads/2022/10/Nature-mood-new.jpg"
+                        <img src="{{ Storage::url($categories[1]->featured_picture) }}"
                             alt="Nature mood new"
                             class="object-cover w-full h-full"
                             style="object-position: 48% 100%;">
                         <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center p-4">
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
-                                <a href="/products/store" >Living & Dormitor</a>
+                                <a href="{{ route('category', $categories[1]->slug) }}" >{{ $categories[1]->name }}</a>
                             </h2>
-                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
-                                Caută online
-                            </a>
+                            <a href="{{ route('category', $categories[1]->slug) }}" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">Vezi produsele</a>
                         </div>
                     </div>
                     <!-- Second Element in Second Column -->
                     <div class="relative flex-1 flex h-1/2">
-                        <img src="https://studio-ceramica.ro/wp-content/uploads/2022/10/terase2.jpg"
+                        <img src="{{ Storage::url($categories[2]->featured_picture) }}"
                             alt="terase2"
                             class="object-cover w-full h-full"
                             style="object-position: 70% 97%;">
                         <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-center justify-center p-4">
                             <h2 class="text-3xl font-bold text-white mb-4 text-center">
-                                <a href="/products/store" >Terase</a>
+                                <a href="{{ route('category', $categories[2]->slug) }}" >{{ $categories[2]->name }}</a>
                             </h2>
-                            <a href="/products/store" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">
-                                Caută online
-                            </a>
+                            <a href="{{ route('category', $categories[2]->slug) }}" class="duration-300 inline-flex items-center px-4 py-2 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700">Vezi produsele</a>
                         </div>
                     </div>
                 </div>

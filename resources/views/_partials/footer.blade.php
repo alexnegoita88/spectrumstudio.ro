@@ -16,9 +16,9 @@
                     </p>
                     <p class="border-t-2 border-gray-700 mt-4 py-2">
                         <ul>
-                            <li><a href="">Termeni si conditii</a></li>
-                            <li><a href="">Politica de confidentialitate</a></li>
-                            <li><a href="">Politica cookie</a></li>
+                            <li><a href="{{ route('terms') }}">Termeni si conditii</a></li>
+                            <li><a href="{{ route('privacy') }}">Politica de confidentialitate</a></li>
+                            <li><a href="{{ route('cookie') }}">Politica cookie</a></li>
                         </ul>
                     </p>
                 </div>

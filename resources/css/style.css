@@ -161,8 +161,8 @@
 }
 
 .swiper-container-thumbs .swiper-slide {
-  width: 100px; /* Set fixed width for square thumbnails */
-  height: 100px; /* Set fixed height for square thumbnails */
+  width: 90px; /* Set fixed width for square thumbnails */
+  height: 90px; /* Set fixed height for square thumbnails */
   display: flex; /* Center the image within the slide */
   justify-content: center;
   align-items: center;

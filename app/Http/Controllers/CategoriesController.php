@@ -32,41 +32,43 @@ class CategoriesController extends Controller
         // Get IDs of the selected category and its child categories
         $categoryIds = $this->getCategoryIds($category);
     
-        // Retrieve all products associated with the selected category and its children
-        $products = Product::whereHas('categories', function ($query) use ($categoryIds) {
-            $query->whereIn('categories.id', $categoryIds);
-        })->where('active', true)->paginate(9);
+        // Retrieve all products associated with the selected category and its children, with initial filtering and sorting
+        $productsQuery = Product::whereHas('categories', function ($query) use ($categoryIds) {
+                $query->whereIn('categories.id', $categoryIds);
+            })
+            ->where('active', true);
     
-
-
+        // Sort based on the request's 'sort' parameter
         $sort = $request->query('sort', 'date_desc'); // Default to sorting by newest
-        $page = $request->query('page', 1); // Default to page 1
     
         switch ($sort) {
             case 'price':
-                $products = Product::where('active', true)->orderBy('price')->paginate(9);
+                $productsQuery->orderBy('price');
                 break;
             case 'price_desc':
-                $products = Product::where('active', true)->orderBy('price', 'desc')->paginate(9);
+                $productsQuery->orderBy('price', 'desc');
                 break;
             case 'name':
-                $products = Product::where('active', true)->orderBy('name', 'asc')->paginate(9);
+                $productsQuery->orderBy('name', 'asc');
                 break;
             case 'date':
-                $products = Product::where('active', true)->orderBy('created_at', 'asc')->paginate(9);
+                $productsQuery->orderBy('created_at', 'asc');
                 break;
             default:
-                $products = Product::where('active', true)->orderBy('created_at', 'desc')->paginate(9);
+                $productsQuery->orderBy('created_at', 'desc');
                 break;
         }
-
-        
+    
+        // Paginate the sorted products query
+        $products = $productsQuery->paginate(9);
+    
         return view('categories.one', [
             'products' => $products,
             'category' => $category,
             'categories' => $categories,
         ]);
     }
+    
     
     private function getCategoryIds(Category $category)
     {
