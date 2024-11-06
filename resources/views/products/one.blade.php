@@ -2,6 +2,8 @@
 
 @section('title', ucfirst($product->name))
 
+@section('description', strip_tags($product->description))
+
 @section('content')
 
 <section class="container max-w-6xl mx-auto p-6">
@@ -53,19 +55,30 @@
         <div class="w-full lg:w-1/2 lg:pl-6">
             <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ ucfirst($product->name) }}</h1>
 
-            <!-- Hardcoded Information -->
-            <div class="bg-gray-100 p-4 mb-6 rounded-lg">
-                <h2 class="text-xl font-semibold text-gray-800 mb-2">Hardcoded Information</h2>
-                <p class="text-gray-600">This section can be used for additional product details, specifications, or any
-                    other relevant information.</p>
-            </div>
 
-            <p class="text-lg text-gray-600 mb-4">{!! $product->description !!}</p>
+            <div class="text-lg text-gray-600 my-14">{!! $product->description !!}</div>
 
-            <p class="text-xl font-semibold text-gray-800 mb-4">${{ number_format($product->price, 2) }}</p>
-            <a href="#"
-                class="text-center text-gray-100 font-2xl px-4 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block">Solicita
-                oferta</a>
+            @if($product->external_link)
+                <a href="{{ url($product->external_link) }}" target="_blank"
+                    class="text-center text-gray-100 font-2xl px-4 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block">Vezi
+                    mai multe detalii...</a>
+            @endif
+
+            @if(isset($product->catalogs) && !empty($product->catalogs[0]))
+                <ul class="space-y-2 mt-16">
+                    <h3 class="font-bold text-xl underline">Vezi @if( sizeof($product->catalogs) > 1)
+                        {{ "cataloagele:" }} @else {{ "catalogul:" }} @endif
+                    </h3>
+                    @foreach($product->catalogs as $catalog)
+                        <li class="flex ">
+                            <a href="{{ Storage::url($catalog) }}" target="_blank" class="text-lg inline-block  transform hover:scale-105 transition-transform duration-200 ease-in-out hover:underline">
+                                {{ basename($catalog) }}
+                            </a>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
         </div>
     </div>
 
@@ -76,14 +89,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach($relatedProducts as $relatedProduct)
                     <div class="bg-white rounded-sm shadow-sm p-4">
-                        <img src="{{ url(Storage::url($relatedProduct->pictures[0])) }}"
-                            alt="{{ ucfirst($relatedProduct->name) }}"
-                            class="w-full h-48 object-cover rounded-sm mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($relatedProduct->name) }}</h3>
-                        <p class="text-gray-600 mb-2">${{ number_format($relatedProduct->price, 2) }}</p>
-                        <a href="{{ route('product', $relatedProduct->slug) }}"
-                            class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block">Solicita
-                            oferta</a>
+                        <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="{{ $product->name }}" class="w-full h-48 object-cover rounded-sm mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($product->name) }}</h3>
+                        <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
                     </div>
                 @endforeach
             </div>
@@ -110,8 +118,7 @@
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <!-- Close Button -->
-                <button id="close-modal"
-                    class="absolute top-4 right-4 text-gray-800 text-3xl p-2 rounded-full z-50">×</button>
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-800 text-3xl p-2 rounded-full z-50">×</button>
             </div>
         </div>
     </div>

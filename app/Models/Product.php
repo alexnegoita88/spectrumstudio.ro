@@ -17,10 +17,14 @@ class Product extends Model
         'pictures',
         'slug',
         'active',
+        'external_link',
+        'catalogs',
     ];
 
     protected $casts = [
         'pictures' => 'array',
+        'external_link'=> 'array',
+        'catalogs'=> 'array',
     ];
 
 

@@ -2,6 +2,8 @@
 
 @section('title', ucfirst($category->name))
 
+@section('description', strip_tags($category->description))
+
 @section('content')
 
 
@@ -66,8 +68,10 @@
                         <option value="date_desc" {{ request('sort') == 'date_desc' ? 'selected' : '' }}>Sorteaza dupa cele mai noi</option>
                         <option value="date" {{ request('sort') == 'date' ? 'selected' : '' }}>Sorteaza dupa cele mai vechi</option>
                         <option value="name" {{ request('sort') == 'name' ? 'selected' : '' }}>Sorteaza dupa nume</option>
+                        {{--
                         <option value="price" {{ request('sort') == 'price' ? 'selected' : '' }}>Sorteaza dupa pret ascendent</option>
                         <option value="price_desc" {{ request('sort') == 'price_desc' ? 'selected' : '' }}>Sorteaza dupa pret descendent</option>
+                        --}}
                     </select>
                 </form>
                 @endif

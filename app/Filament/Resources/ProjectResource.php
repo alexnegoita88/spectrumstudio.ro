@@ -71,11 +71,12 @@ class ProjectResource extends Resource
                         ->columnSpanFull(),
                 ]),
            
-                Section::make('Picture')->schema([
-                    FileUpload::make('featured_image')
-                        ->label('Featured image')
+                Section::make('Pictures')->schema([
+                    FileUpload::make('pictures')
+                        ->label('Project pictures (max. 5)')
                         ->required()
-                        // ->multiple()
+                        ->multiple(true)
+                        ->maxFiles(5)
                         ->disk('public')
                         ->preserveFilenames()
                         ->downloadable()
@@ -118,10 +119,10 @@ class ProjectResource extends Resource
                     ->toggledHiddenByDefault()
                     ->sortable(),
 
-                ImageColumn::make('featured_image')
-                    ->toggleable(true)
-
-                    ,
+                    ImageColumn::make('pictures')
+                    ->getStateUsing(fn (Project $record) => isset($record->pictures[0]) ? $record->pictures[0] : null)
+                    ->toggleable(true),
+                
 
                 TextColumn::make('title')
                     ->toggleable(true)

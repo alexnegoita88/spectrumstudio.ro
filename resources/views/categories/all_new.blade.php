@@ -15,12 +15,9 @@
             <div class="relative flex flex-col max-h-[630px]">
                 <div class="relative flex-1 flex">
                     <img src="{{ Storage::url($category->featured_picture) }}" alt="bai studio ceramica"
-                        class="object-cover w-full h-full" style="object-position: 26% 81%;">
+                    class="object-cover w-full h-full min-h-80" style="object-position: 26% 81%;">
                     <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end p-4">
-                        <a href="/products/store"
-                            class="uppercase duration-300 inline-flex items-center w-full px-6 py-3 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700 mb-4">
-                            {{ $category->name }}
-                        </a>
+                        <a href="{{ route('category', $category->slug) }}" class="uppercase duration-300 inline-flex items-center w-full px-6 py-3 text-sm font-semibold text-white bg-gray-800 border border-transparent rounded-lg shadow-sm hover:bg-gray-700 mb-4">{{ $category->name }}</a>
                     </div>
                 </div>
             </div>

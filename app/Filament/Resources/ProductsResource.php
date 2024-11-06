@@ -64,6 +64,18 @@ class ProductsResource extends Resource
                         ->columnSpanFull()
                         ->required()
                 ,
+                ]),
+                Section::make('Catalogs')->schema([
+                    FileUpload::make('catalogs')
+                        ->label('Images (max. 3 files)')
+                        ->multiple(true)
+                        ->disk('public')
+                        ->preserveFilenames()
+                        ->downloadable()
+                        ->openable()
+                        ->maxFiles(3)
+                        ->columnSpanFull()
+
                 ])
             ])->columns(2)->columnSpan(2),
 
@@ -82,6 +94,12 @@ class ProductsResource extends Resource
                         ->maxFiles(5)
                         ->columnSpanFull()
 
+                    ,
+                    TextInput::make('external_link')
+                        ->label('External link')
+                        ->url(true)
+                        ->maxLength(255) // Ensure this matches the DB column's length
+                        
                     ,
                     TextInput::make('slug')
                         ->required()
@@ -137,6 +155,11 @@ class ProductsResource extends Resource
                     ->sortable()
                 ,
                 TextColumn::make('slug')
+                    ->toggleable(true)
+                    ->searchable()
+                    ->sortable()
+                ,
+                TextColumn::make('external_link')
                     ->toggleable(true)
                     ->searchable()
                     ->sortable()

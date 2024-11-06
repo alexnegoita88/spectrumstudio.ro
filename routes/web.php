@@ -9,6 +9,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\SearchController;
 use App\Models\FormSubmission;
 use Illuminate\Support\Facades\Route;
 
@@ -43,8 +44,12 @@ Route::post('/contact', [ContactController::class, 'submit'])->name('contact.sub
 
 Route::prefix('legal')->group(function () {
     Route::get('/terms',  [LegalController::class, 'tandc'])->name('terms');
+    Route::get('/cookie',  [LegalController::class, 'cookies'])->name('cookie');
+    Route::get('/privacy',  [LegalController::class, 'privacy'])->name('privacy');
 });
 
+
+Route::get('search', [SearchController::class,'search'])->name('search');
 
 // Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter_subscribe');//->middleware('throttle:2,1'); // 2 requests per minute;
 // Route::get('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter_subscribe');//->middleware('throttle:2,1'); // 2 requests per minute;

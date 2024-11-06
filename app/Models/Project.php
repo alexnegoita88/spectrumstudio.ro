@@ -14,7 +14,7 @@ class Project extends Model
     protected $fillable = [
         'title',
         'body',
-        'featured_image',
+        'pictures',
         'slug',
         'active',
         'published_at',
@@ -25,7 +25,10 @@ class Project extends Model
 
     protected $table = 'projects';
 
-    
+    protected $casts = [
+        'pictures' => 'array',
+    ];
+
     public function user() : BelongsTo {
         return $this->belongsTo(User::class);
     }
