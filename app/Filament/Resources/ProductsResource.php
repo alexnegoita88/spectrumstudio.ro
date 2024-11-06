@@ -152,7 +152,6 @@ class ProductsResource extends Resource
                     ->toggleable(true)
                     ->toggledHiddenByDefault()
                     ->searchable()
-                    ->sortable()
                 ,
                 TextColumn::make('slug')
                     ->toggleable(true)
@@ -184,13 +183,19 @@ class ProductsResource extends Resource
             ->defaultSort('id', 'desc')
 
             ->filters([
+                // Status Filter
                 SelectFilter::make('active')
                 ->label('Status')
                 ->options([
                     '1' => 'Active',
                     '0' => 'Inactive',
                 ]),
-                
+                // Category Filter for Many-to-Many Relationship
+                SelectFilter::make('categories')
+                ->label('Category')
+                ->multiple()
+                ->relationship('categories', 'name') // Filters by categories.name field
+                ->placeholder('All Categories'), // Optional placeholder text
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

@@ -89,9 +89,9 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach($relatedProducts as $relatedProduct)
                     <div class="bg-white rounded-sm shadow-sm p-4">
-                        <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="{{ $product->name }}" class="w-full h-48 object-cover rounded-sm mb-4">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($product->name) }}</h3>
-                        <a href="{{ route('product', $product->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
+                        <img src="{{ url(Storage::url($relatedProduct->pictures[0])) }}" alt="{{ $relatedProduct->name }}" class="w-full h-48 object-cover rounded-sm mb-4">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($relatedProduct->name) }}</h3>
+                        <a href="{{ route('product', $relatedProduct->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
                     </div>
                 @endforeach
             </div>
