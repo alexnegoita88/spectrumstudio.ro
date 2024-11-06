@@ -61,7 +61,6 @@ class ProductsController extends Controller
         ->orderBy('created_at', 'desc') // Order by most recent
         ->limit(4) // Limit to 4 products
         ->get();
-
         return view('products.one', [
             'product' => $product,
             'relatedProducts' => $relatedProducts,
