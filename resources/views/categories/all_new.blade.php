@@ -28,7 +28,9 @@
 
         @empty
             <div class="col-span-full text-center">
-                <p>No categories available.</p>
+                <h4 class="text-2xl font-bold">Ooops..</h4>
+                <p class="text-center my-10">Nu am gasit produse...</p>
+                <a href="{{ route('home') }}" class="mx-auto text-center text-gray-100 font-2xl px-4 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block">Mergi înapoi</a>
             </div>
         @endforelse
     </div>

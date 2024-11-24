@@ -18,7 +18,7 @@
     <!-- Section Subheader -->
     <h2 class="my-16 text-2xl font-semibold text-gray-700 text-center">Proiecte Spectrum Studio</h2>
 
-    @if($projects)
+    @if(!empty($projects[0]))
         <!-- Gallery Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             <!-- Gallery Item 1 -->
@@ -26,14 +26,19 @@
             @foreach($projects as $project)
                 <div class="bg-gray-900 shadow-md overflow-hidden">
                     @if(!empty($project->pictures) && isset($project->pictures[0]))
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $project->pictures[0]) }}" alt="{{ $project->title }}">
+                        <img class="w-full h-52 object-cover"
+                            src="{{ asset('storage/' . $project->pictures[0]) }}"
+                            alt="{{ $project->title }}">
                     @else
                         <!-- Optional fallback image if no pictures are available -->
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/default-placeholder.png') }}" alt="{{ $project->title }}">
+                        <img class="w-full h-52 object-cover"
+                            src="{{ asset('storage/default-placeholder.png') }}"
+                            alt="{{ $project->title }}">
                     @endif
                     <div class="p-4">
                         <a href="{{ route('projects_show', $project->slug) }}">
-                            <h3 class="text-lg font-semibold text-gray-200 hover:text-white uppercase">{{ $project->title }}</h3>
+                            <h3 class="text-lg font-semibold text-gray-200 hover:text-white uppercase">
+                                {{ $project->title }}</h3>
                         </a>
                     </div>
                 </div>
@@ -41,10 +46,12 @@
 
         </div>
     @else
-        <div class="grid grid-cols-1 my-16">
-            <h3 class="font-bold text-center text-4xl py-2">There are no projects to show...yet...</h3>
-            <p class="font-normal text-center text-xl py-1">Please come back later</p>
+        <div class="col-span-full text-center">
+            <h4 class="text-2xl font-bold">Ooops..</h4>
+            <p class="text-center my-10">Nu am gasit prodiecte...</p>
+            <a href="{{ route('home') }}" class="mx-auto text-center text-gray-100 font-2xl px-4 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block">Mergi înapoi</a>
         </div>
+
     @endif
 
 </div>

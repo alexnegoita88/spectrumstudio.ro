@@ -19,6 +19,8 @@
 
     <!-- Section Wrapper -->
     <section class="relative bg-gray-200 py-12">
+
+        @if(!empty($categories[0]))
         <div class="container max-w-6xl mx-auto px-4">
             <!-- Heading -->
             <h2 class="text-4xl font-bold text-center mb-12">Cele mai noi colectii de produse</h2>
@@ -74,6 +76,7 @@
                 </div>
             </div>
         </div>
+        @endif
     </section>
 
 
