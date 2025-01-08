@@ -78,6 +78,8 @@ class CategoriesResource extends Resource
                             ->imageEditor()
                             ->imageEditorAspectRatios(['4:3','3:4', '16:9', '9:16', '1:1'])
                             ->maxFiles(1)
+                            ->disk('uploads') // Specificăm disk-ul personalizat
+                            ->visibility('public')
                             ->columnSpanFull()
         
     
@@ -110,6 +112,8 @@ class CategoriesResource extends Resource
                 ->label('Picture')
                 ->toggleable(true)
                 ->toggledHiddenByDefault(true)
+                ->disk('uploads') // Specificăm disk-ul personalizat
+            
                 ,
                 
                 TextColumn::make('name')

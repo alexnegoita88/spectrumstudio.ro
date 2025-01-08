@@ -26,10 +26,10 @@
             @foreach($projects as $project)
                 <div class="bg-gray-900 shadow-md overflow-hidden">
                     @if(!empty($project->pictures) && isset($project->pictures[0]))
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $project->pictures[0]) }}" alt="{{ $project->title }}">
+                        <img class="w-full h-52 object-cover" src="{{ asset('uploads/' . $project->pictures[0]) }}" alt="{{ $project->title }}">
                     @else
                         <!-- Optional fallback image if no pictures are available -->
-                        <img class="w-full h-52 object-cover" src="{{ asset('storage/default-placeholder.png') }}" alt="{{ $project->title }}">
+                        <img class="w-full h-52 object-cover" src="{{ asset('uploads/default-placeholder.png') }}" alt="{{ $project->title }}">
                     @endif
                     <div class="p-4">
                         <a href="{{ route('projects_show', $project->slug) }}">

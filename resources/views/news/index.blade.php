@@ -23,7 +23,7 @@
             
                 <article class="bg-white shadow-md overflow-hidden border">
                     <a href="{{ route('news_show', $post->slug) }}" class="block">
-                        <img src="{{ asset('storage/'. $post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-auto object-cover">
+                        <img src="{{ asset('uploads/'. $post->featured_image) }}" alt="{{ $post->title }}" class="w-full h-auto object-cover">
                     </a>
                     <div class="p-6">
                         <header class="mb-4">

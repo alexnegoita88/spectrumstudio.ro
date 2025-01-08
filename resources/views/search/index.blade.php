@@ -39,7 +39,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 @foreach(  $results['products'] as $product )
                     <div class="bg-white rounded-sm shadow-sm p-4">
-                        <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="{{ $product->name }}"
+                        <img src="{{ url(asset('uploads/'.$product->pictures[0])) }}" alt="{{ $product->name }}"
                             class="w-full h-48 object-cover rounded-sm mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($product->name) }}</h3>
                         <a href="{{ route('product', $product->slug) }}"
@@ -60,7 +60,7 @@
 
                     <div class="relative flex flex-col max-h-[630px]">
                         <div class="relative flex-1 flex">
-                            <img src="{{ Storage::url($category->featured_picture) }}" alt="bai studio ceramica"
+                            <img src="{{ asset('uploads/'.$category->featured_picture) }}" alt="bai studio ceramica"
                                 class="object-cover w-full h-full min-h-80" style="object-position: 26% 81%;">
                             <div class="absolute inset-0 bg-black bg-opacity-30 flex flex-col items-start justify-end p-4">
                                 <a href="{{ route('category', $category->slug) }}"
@@ -83,10 +83,10 @@
                 @foreach($results['projects'] as $project)
                     <div class="bg-gray-900 shadow-md overflow-hidden">
                         @if(!empty($project->pictures) && isset($project->pictures[0]))
-                            <img class="w-full h-52 object-cover" src="{{ asset('storage/' . $project->pictures[0]) }}" alt="{{ $project->title }}">
+                            <img class="w-full h-52 object-cover" src="{{ asset('uploads/' . $project->pictures[0]) }}" alt="{{ $project->title }}">
                         @else
                             <!-- Optional fallback image if no pictures are available -->
-                            <img class="w-full h-52 object-cover" src="{{ asset('storage/default-placeholder.png') }}" alt="{{ $project->title }}">
+                            <img class="w-full h-52 object-cover" src="{{ asset('uploads/default-placeholder.png') }}" alt="{{ $project->title }}">
                         @endif
                         <div class="p-4">
                             <a href="{{ route('projects_show', $project->slug) }}">

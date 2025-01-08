@@ -19,7 +19,7 @@
                         <div class="overflow-hidden rounded-full mb-4">
                             <img class="w-full h-full object-cover grayscale transition duration-300 ease-in-out hover:grayscale-0 rounded-full"
                                 fetchpriority="high" decoding="async"
-                                src="{{ Storage::url($category->featured_picture) }}"
+                                src="{{ asset('uploads/'.$category->featured_picture) }}"
                                 alt="{{ $category->name }}" width="420" height="420">
                         </div>
                         <div class="p-4 text-center">

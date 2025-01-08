@@ -28,7 +28,7 @@
                 <!-- First Column (Full Height) -->
                 <div class="relative flex flex-col max-h-[630px] overflow-hidden">
                     <div class="relative flex-1 flex">
-                        <img src="{{ Storage::url($categories[0]->featured_picture) }}"
+                        <img src="{{ asset('uploads/'.$categories[0]->featured_picture) }}"
                             alt="bai studio ceramica"
                             class="object-cover w-full h-full"
                             style="object-position: 26% 81%;">
@@ -47,7 +47,7 @@
                 <div class="relative flex flex-col max-h-[630px] overflow-hidden gap-6">
                     <!-- First Element in Second Column -->
                     <div class="relative flex-1 flex h-1/2">
-                        <img src="{{ Storage::url($categories[1]->featured_picture) }}"
+                        <img src="{{ asset('uploads/'.$categories[1]->featured_picture) }}"
                             alt="Nature mood new"
                             class="object-cover w-full h-full"
                             style="object-position: 48% 100%;">
@@ -60,7 +60,7 @@
                     </div>
                     <!-- Second Element in Second Column -->
                     <div class="relative flex-1 flex h-1/2">
-                        <img src="{{ Storage::url($categories[2]->featured_picture) }}"
+                        <img src="{{ asset('uploads/'.$categories[2]->featured_picture) }}"
                             alt="terase2"
                             class="object-cover w-full h-full"
                             style="object-position: 70% 97%;">

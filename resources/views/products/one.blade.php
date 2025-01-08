@@ -10,7 +10,7 @@
 
     <!-- Product Banner -->
     <div class="relative">
-        <img src="{{ url(Storage::url($product->pictures[0])) }}" alt="{{ ucfirst($product->name) }}"
+        <img src="{{ asset('uploads/'.$product->pictures[0]) }}" alt="{{ ucfirst($product->name) }}"
             class="w-full h-80 object-cover rounded-lg">
     </div>
 
@@ -24,7 +24,7 @@
                     <!-- Main Slides -->
                     @foreach($product->pictures as $picture)
                         <div class="swiper-slide">
-                            <img src="{{ url(Storage::url($picture)) }}" alt="{{ ucfirst($product->name) }}"
+                            <img src="{{ asset('uploads/'.$picture) }}" alt="{{ ucfirst($product->name) }}"
                                 class="w-full h-full object-cover rounded-lg">
                         </div>
                     @endforeach
@@ -40,7 +40,7 @@
                     <!-- Thumbnail Slides -->
                     @foreach($product->pictures as $picture)
                         <div class="swiper-slide">
-                            <img src="{{ url(Storage::url($picture)) }}" alt="{{ ucfirst($product->name) }}"
+                            <img src="{{ asset('uploads/'.$picture) }}" alt="{{ ucfirst($product->name) }}"
                                 class="thumb-img">
                         </div>
                     @endforeach
@@ -71,7 +71,7 @@
                     </h3>
                     @foreach($product->catalogs as $catalog)
                         <li class="flex ">
-                            <a href="{{ Storage::url($catalog) }}" target="_blank" class="text-lg inline-block  transform hover:scale-105 transition-transform duration-200 ease-in-out hover:underline">
+                            <a href="{{ asset('uploads/'.$catalog) }}" target="_blank" class="text-lg inline-block  transform hover:scale-105 transition-transform duration-200 ease-in-out hover:underline">
                                 {{ basename($catalog) }}
                             </a>
                         </li>
@@ -89,7 +89,7 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach($relatedProducts as $relatedProduct)
                     <div class="bg-white rounded-sm shadow-sm p-4">
-                        <img src="{{ url(Storage::url($relatedProduct->pictures[0])) }}" alt="{{ $relatedProduct->name }}" class="w-full h-48 object-cover rounded-sm mb-4">
+                        <img src="{{ asset('uploads/'.$relatedProduct->pictures[0]) }}" alt="{{ $relatedProduct->name }}" class="w-full h-48 object-cover rounded-sm mb-4">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2">{{ ucfirst($relatedProduct->name) }}</h3>
                         <a href="{{ route('product', $relatedProduct->slug) }}" class="w-full text-center text-gray-100 font-2xl px-2 py-2 bg-gray-900 hover:bg-gray-600 rounded-lg inline-block my-10">Vezi detalii</a>
                     </div>
@@ -107,7 +107,7 @@
                     @foreach($product->pictures as $picture)
                         <div class="swiper-slide">
                             <div class="swiper-slide-content">
-                                <img src="{{ url(Storage::url($picture)) }}" alt="Modal Image">
+                                <img src="{{ asset('uploads/'.$picture) }}" alt="Modal Image">
                             </div>
                         </div>
                     @endforeach
