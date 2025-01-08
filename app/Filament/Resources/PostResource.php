@@ -75,7 +75,6 @@ class PostResource extends Resource
                             ->label('Featured image')
                             ->required()
                             // ->multiple()
-                            ->disk('public')
                             ->preserveFilenames()
                             ->downloadable()
                             ->openable()
@@ -135,6 +134,7 @@ class PostResource extends Resource
                 
                 ImageColumn::make('featured_image')
                 ->toggleable(true)
+                ->disk('uploads')
 
                 ,
 

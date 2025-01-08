@@ -71,7 +71,6 @@ class CategoriesResource extends Resource
                             ->label('Featured Image')
                             ->required()
                             ->multiple(false)
-                            ->disk('public')
                             ->preserveFilenames()
                             ->downloadable()
                             ->openable()
