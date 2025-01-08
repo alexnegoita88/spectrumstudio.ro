@@ -84,6 +84,8 @@ class ProjectResource extends Resource
                         ->imageEditor()
                         ->imageEditorAspectRatios(['4:3','3:4', '16:9', '9:16', '1:1'])
                         // ->maxFiles(5)
+                        ->disk('uploads') // Specificăm disk-ul personalizat
+                        ->visibility('public')
                         ->columnSpanFull()
                         ,
                 ]),

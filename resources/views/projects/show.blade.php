@@ -25,7 +25,7 @@
                     <!-- Main Slides -->
                     @foreach($project->pictures as $picture)
                         <div class="swiper-slide">
-                            <img src="{{ url(Storage::url($picture)) }}" alt="{{ ucfirst($project->title) }}"
+                            <img src="{{ url(asset('uploads/'.$picture)) }}" alt="{{ ucfirst($project->title) }}"
                                 class="w-full h-full object-cover rounded-lg">
                         </div>
                     @endforeach
@@ -41,7 +41,7 @@
                     <!-- Thumbnail Slides -->
                     @foreach($project->pictures as $picture)
                         <div class="swiper-slide">
-                            <img src="{{ url(Storage::url($picture)) }}" alt="{{ ucfirst($project->name) }}"
+                            <img src="{{ url(asset('uploads/'.$picture)) }}" alt="{{ ucfirst($project->name) }}"
                                 class="thumb-img">
                         </div>
                     @endforeach
@@ -67,7 +67,7 @@
                     @foreach($project->pictures as $picture)
                         <div class="swiper-slide">
                             <div class="swiper-slide-content">
-                                <img src="{{ url(Storage::url($picture)) }}" alt="Modal Image">
+                                <img src="{{ url(asset('uploads/'.$picture)) }}" alt="Modal Image">
                             </div>
                         </div>
                     @endforeach

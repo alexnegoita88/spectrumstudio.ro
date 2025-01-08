@@ -9,7 +9,7 @@
 
         <!-- Post Thumbnail -->
         <div class="min-h-80">
-            <img class="w-full h-auto object-cover border-2 border-gray-500 shadow-lg" src="{{ asset('storage/' . $post->featured_image) }}" alt="{{ $post->title }}">
+            <img class="w-full h-auto object-cover border-2 border-gray-500 shadow-lg" src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}">
         </div>
 
     </header>
@@ -64,7 +64,7 @@
                         <div class="carousel-item">
                             <article class="bg-white">
                                 <a href="{{ route('news_show', $article->slug) }}" class="block">
-                                    <img src="{{ asset('storage/' . $article->featured_image) }}" alt="Item 1">
+                                    <img src="{{ asset('uploads/' . $article->featured_image) }}" alt="Item 1">
                                 </a>
                                 <div class="p-6">
                                     <header class="mb-4">

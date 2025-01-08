@@ -69,7 +69,8 @@ class ProductsResource extends Resource
                     FileUpload::make('catalogs')
                         ->label('Images (max. 3 files)')
                         ->multiple(true)
-                        ->disk('public')
+                        ->disk('uploads') // Specificăm disk-ul personalizat
+                        ->visibility('public')
                         ->preserveFilenames()
                         ->downloadable()
                         ->openable()
@@ -92,12 +93,16 @@ class ProductsResource extends Resource
                         ->imageEditor()
                         ->imageEditorAspectRatios(['4:3','3:4', '16:9', '9:16', '1:1'])
                         ->maxFiles(5)
+                        ->disk('uploads') // Specificăm disk-ul personalizat
+                        ->visibility('public')
                         ->columnSpanFull()
 
                     ,
                     TextInput::make('external_link')
                         ->label('External link')
                         ->url(true)
+                        ->hint('Ex: https://www.google.com')
+                        ->placeholder('https://www.google.com')
                         ->maxLength(255) // Ensure this matches the DB column's length
                         
                     ,
@@ -133,6 +138,9 @@ class ProductsResource extends Resource
                 ,
 
                 ImageColumn::make('pictures')
+                ->disk('uploads') // Specificăm disk-ul personalizat
+                ->visibility('public')
+
                 ->getStateUsing(function (Product $record) {
                     // Directly access the first element of the array
                     return is_array($record->pictures) ? $record->pictures[0] : null;
