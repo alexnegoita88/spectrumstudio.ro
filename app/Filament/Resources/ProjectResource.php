@@ -77,7 +77,6 @@ class ProjectResource extends Resource
                         ->required()
                         ->multiple(true)
                         ->maxFiles(5)
-                        ->disk('public')
                         ->preserveFilenames()
                         ->downloadable()
                         ->openable()
@@ -122,6 +121,7 @@ class ProjectResource extends Resource
                     ->sortable(),
 
                     ImageColumn::make('pictures')
+                    ->disk('uploads')
                     ->getStateUsing(fn (Project $record) => isset($record->pictures[0]) ? $record->pictures[0] : null)
                     ->toggleable(true),
                 
