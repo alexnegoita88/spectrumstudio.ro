@@ -86,7 +86,6 @@ class ProductsResource extends Resource
                         ->label('Images (max. 5 files)')
                         ->required()
                         ->multiple(true)
-                        ->disk('public')
                         ->preserveFilenames()
                         ->downloadable()
                         ->openable()
