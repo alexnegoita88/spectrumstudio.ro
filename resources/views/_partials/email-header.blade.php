@@ -24,7 +24,7 @@
             <a href=" {{ route('about') }}" style="text-decoration: none; color: #000000;">Despre noi</a>
          </td>
          <td style="text-align: center; width: 20%; ">
-            <a href=" {{ route('products_all') }}" style="text-decoration: none; color: #000000;">Produse</a>
+            <a href=" {{ route('categories_all') }}" style="text-decoration: none; color: #000000;">Produse</a>
          </td>
          <td style="text-align: center; width: 20%; ">
             <a href=" {{ route('projects_all') }}" style="text-decoration: none; color: #000000;">Proiecte</a>
