@@ -7,7 +7,7 @@
 
 
     <!-- Section Header -->
-    <header class="w-full bg-cover bg-top relative" style="background-image: url({{ asset('images/' . 'shop-studio-contact-1.jpg') }});">
+    <header class="w-full bg-cover bg-center relative" style="background-image: url({{ asset('images/r-evolution_amb_terra-tortora.jpg') }});">
         <!-- Overlay for better text visibility -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 flex items-center justify-center h-80">
@@ -50,13 +50,17 @@
 
 
 
-    <section class="bg-gray-300">
+    <section class="border-t">
         <div class="container max-w-6xl p-6 mx-auto">
-            <h1 class="text-4xl mx-auto text-center font-bold py-10">Contactează-ne</h1>
+
+            <h1 class="text-4xl mx-auto text-center font-bold pt-10 pb-2">Contactează-ne</h1>
 
             <hr>
+
+            <p class="text-center text-lg mt-6 text-gray-600">Deci, Daaa! Formularul ăsta funcționează!</p>
+            <p class="text-center text-md mb-6 text-gray-600">Scrie-ne cu încredere! Chiar răspundem.</p>
             
-            <div class="container py-20">
+            <div class="container pb-10 pt-4">
                 <form id="SpectrumStudioContactForm" action="{{ route('contact.submit') }}" method="POST">
                     @csrf
 

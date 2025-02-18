@@ -2,9 +2,9 @@
 
 <section class="relative h-50" >
     @if($header_slider)
-    <div class="swiper-container header-swiper h-full overflow-hidden" data-effect="{{ $header_slider->effect }}">
+    <div class="swiper-container header-swiper h-full overflow-hidden max-h-[510px]" data-effect="{{ $header_slider->effect }}">
         
-        <div class="swiper-wrapper">
+        <div class="swiper-wrapper max-h-[510px]">
             @foreach($header_slider->images as $picture)
                 <div class="swiper-slide max-h-[510px]">
                     <div style="background-image: url('{{ asset('uploads/' . $picture) }}'); height: 510px;"  class="bg-cover bg-center"></div>

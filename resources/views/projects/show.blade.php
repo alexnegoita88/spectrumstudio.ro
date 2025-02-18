@@ -8,15 +8,13 @@
 
 <section class="container relative max-w-6xl mx-auto p-6 bg-white rounded-md shadow-lg my-10 ">
 
-    <header class="w-full bg-cover bg-center relative mb-10">
-        <!-- Overlay for better text visibility -->
-        <div class="absolute"></div>
-        <div class="relative z-10 flex items-center justify-center h-80">
-            <h1 class="text-6xl font-bold text-center uppercase">{{ $project->title }}</h1>
+    <header class="w-full bg-cover bg-center relative">
+        <div class="relative z-10 flex items-center justify-center ">
+            <h1 class="text-6xl font-bold text-center py-6">{{ $project->title }}</h1>
         </div>
     </header>
 
-    <div class="flex flex-col lg:flex-row lg:gap-6 mt-6 border-t-2 py-6">
+    <div class="flex flex-col lg:flex-row lg:gap-6 mt-6 border-t py-6">
         <!-- Product Gallery (Left) -->
         <div class="w-full lg:w-1/2 lg:pr-6 relative">
             <!-- Main Swiper Gallery -->

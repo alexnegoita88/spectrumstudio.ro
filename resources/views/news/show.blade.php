@@ -9,7 +9,7 @@
 
         <!-- Post Thumbnail -->
         <div class="min-h-80">
-            <img class="w-full h-auto object-cover border-2 border-gray-500 shadow-lg" src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}">
+            <img class="w-full h-auto object-cover border border-gray-500 shadow-lg" src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}">
         </div>
 
     </header>

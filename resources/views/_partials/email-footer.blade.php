@@ -72,15 +72,7 @@
                                                                      </a>
                                                                   </p>
                                                                </td>
-                                                               <td valign="top" style="padding:0in .25in 0in .25in">
-                                                                  <p class="MsoNormal">
-                                                                     <a href="https://www.tiktok.com/" target="_blank">
-                                                                        <span style="text-decoration:none">
-                                                                           <img border="0" width="40" height="40" style="width:.4166in;height:.4166in" id="_x0000_i1026" src="{{ asset('images/emails/tiktok-filled-dark-40.png') }}" alt="TikTok icon">
-                                                                        </span>
-                                                                     </a>
-                                                                  </p>
-                                                               </td>
+
                                                             </tr>
                                                          </tbody>
                                                       </table>
@@ -108,7 +100,7 @@
    <tbody>
       <tr align="center">
          <td style="color: #000000; text-align: center;">
-            <p style="font-family: Arial, sans-serif; text-decoration: none; font-size: 18px">© {{date('Y')}} SpectrumStudio.
+            <p style="font-family: Arial, sans-serif; text-decoration: none; font-size: 18px">SpectrumStudio © {{date('Y')}}.
                Toate drepturile rezervate. <br><a href="{{ env('APP_URL')}}"
                   style="text-decoration: none; color: #000000">www.spectrumstudio.ro</a></p>
          </td>

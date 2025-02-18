@@ -103,7 +103,7 @@
 
 
     <!-- Navigation Row -->
-    <div class="bg-gray-100 text-gray-900 shadow-md border-t-2 sticky top-0 z-20">
+    <div class="bg-white text-gray-900 shadow-md border-t sticky top-0 z-20">
         <div class=" mx-auto px-4 flex items-center h-14">
             <!-- Toggle button for mobile menu -->
             <button id="menu-toggle" class="lg:hidden text-gray-900 focus:outline-none">
@@ -126,6 +126,9 @@
                     </li>
                     <li>
                         <a href="{{ route('projects_all') }}" class="{{ Route::is('projects_all') ? 'font-bold' : '' }} hover:text-gray-900 hover:font-bold transition-all duration-100 ease-in-out">Proiecte</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('news_all') }}" class="{{ Route::is('news_all') ? 'font-bold' : '' }} hover:text-gray-900 hover:font-bold transition-all duration-100 ease-in-out">Noutati</a>
                     </li>
                     <li>
                         <a href="{{ route('contact') }}" class="{{ Route::is('contact') ? 'font-bold' : '' }} hover:text-gray-900 hover:font-bold transition-all duration-100 ease-in-out">Contact</a>
@@ -209,6 +212,9 @@
                 </li>
                 <li class="border-t border-gray-300">
                     <a href="{{ route('projects_all') }}" class="{{ Route::is('projects_all') ? 'font-bold' : '' }} block px-4 py-3 hover:text-gray-700">Proiecte</a>
+                </li>
+                <li class="border-t border-gray-300">
+                    <a href="{{ route('news_all') }}" class="{{ Route::is('news_all') ? 'font-bold' : '' }} block px-4 py-3 hover:text-gray-700">Noutati</a>
                 </li>
                 <li class="border-t border-gray-300">
                     <a href="{{ route('contact') }}" class="{{ Route::is('contact') ? 'font-bold' : '' }} block px-4 py-3 hover:text-gray-700">Contact</a>
