@@ -88,27 +88,29 @@ if (modal) {
 
 
 const swiperContainer = document.querySelector('.header-swiper');
-const effectType = swiperContainer.getAttribute('data-effect') || 'slide'; // Fallback: 'slide' dacă nu există valoare
-
-// Initialize Swiper instances
-const headerSwiper = new Swiper(swiperContainer, {
-    modules: [Navigation, Pagination, Zoom, Autoplay, EffectFade, EffectCreative, EffectCube, EffectCoverflow, EffectFlip, EffectCards],
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-    },
-    autoplay: true,
-    effect: effectType, // Setează efectul din baza de date, /* 'slide', 'fade', 'cube', 'coverflow', 'flip', 'creative', 'cards' */
-    keyboard: {
-        enabled: true,
-    },
-    loop: true,
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-    },
-});
+if(swiperContainer) {
+    const effectType = swiperContainer.getAttribute('data-effect') || 'slide'; // Fallback: 'slide' dacă nu există valoare
+    
+    // Initialize Swiper instances
+    const headerSwiper = new Swiper(swiperContainer, {
+        modules: [Navigation, Pagination, Zoom, Autoplay, EffectFade, EffectCreative, EffectCube, EffectCoverflow, EffectFlip, EffectCards],
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        autoplay: true,
+        effect: effectType, // Setează efectul din baza de date, /* 'slide', 'fade', 'cube', 'coverflow', 'flip', 'creative', 'cards' */
+        keyboard: {
+            enabled: true,
+        },
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+}

@@ -29,9 +29,9 @@ Route::get('/product/{slug}', [ProductsController::class, 'show'])->name('produc
 Route::get('/projects', [ProjectsController::class, 'index'])->name('projects_all');
 Route::get('/project/{slug}', [ProjectsController::class, 'show'])->name('projects_show');
 
-// Route::get('/news', [NewsController::class, 'index'])->name('news_all');
-// Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news_show');
-// Route::get('/news/author/{author}', [NewsController::class, 'author'])->name('news_author');
+Route::get('/news', [NewsController::class, 'index'])->name('news_all');
+Route::get('/news/{slug}', [NewsController::class, 'show'])->name('news_show');
+Route::get('/news/author/{author}', [NewsController::class, 'author'])->name('news_author');
 
 
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
@@ -56,3 +56,10 @@ Route::get('search', [SearchController::class,'search'])->name('search');
 // Route::get('/newsletter/successful_subscription', [NewsletterController::class, 'successful_subscribe'])->name('successful_subscription');
 // Route::get('/newsletter/unsubscribe', [NewsletterController::class, 'unsubscribe'])->name('newsletter_unsubscribe');//->middleware('throttle:2,1'); // 2 requests per minute;
 // Route::get('/newsletter/successful_unsubscription', [NewsletterController::class, 'successful_unsubscribe'])->name('successful_unsubscription');
+
+
+
+
+Route::get('test', function () {
+    return view('emails.contact_client', ['content' => '', 'name' => 'Alex']);
+});

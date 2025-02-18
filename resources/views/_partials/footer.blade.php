@@ -11,10 +11,12 @@
 
                 <!-- Section 2 -->
                 <div class="flex-1 text-center">
+                    
                     <p class="text-white">
-                        Ca importator direct, dispunem de toate certificatele de calitate și conformitate pe baza standardelor de referință UNI EN/DIN/ISO pentru toate materialele de finisare.
+                        Punem suflet în fiecare detaliu! Alegem cu grijă fiecare material, asigurându-ne că respectă cele mai înalte standarde de calitate. Pentru noi, siguranța și frumusețea finisajelor tale nu sunt doar un angajament, ci o promisiune.
                     </p>
-                    <p class="border-t-2 border-gray-700 mt-4 py-2">
+                    
+                    <p class="border-t border-gray-700 mt-4 py-2">
                         <ul>
                             <li><a href="{{ route('terms') }}">Termeni si conditii</a></li>
                             <li><a href="{{ route('privacy') }}">Politica de confidentialitate</a></li>
@@ -57,6 +59,6 @@
         </div>
     </section>
     <section class="container mx-auto text-center border-t-2 border-gray-700 py-4">
-        <p>&copy; {{ date('Y') }} SpectrumStudio. Toate drepturile rezervate.</p>
+        <p>SpectrumStudio &copy; {{ date('Y') }}. Toate drepturile rezervate.</p>
     </section>
 </footer>
