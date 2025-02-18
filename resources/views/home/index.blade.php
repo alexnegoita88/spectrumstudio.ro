@@ -4,18 +4,7 @@
 
 @section('content')
 
-    <!-- Hero Section -->
-    <section class="relative bg-cover bg-center h-50" style="background-image: url('https://studio-ceramica.ro/wp-content/uploads/2022/10/policroma-studio-ceramica.jpg');">
-        <div class="max-w-6xl mx-auto">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-            <div class="container mx-auto px-4 py-32 relative z-10 flex flex-col text-white">
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Bine ați venit la SpectrumStudio</h1>
-                <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4">Colecția Noastră Unică</h2>
-                <p class="text-lg md:text-xl lg:text-2xl mb-8">Descoperiți arta ceramicii prin colecțiile noastre rafinate, create cu măiestrie și pasiune.</p>
-                <a href="{{ route('categories_all') }}" class="bg-gray-900 hover:bg-gray-600 text-gray-400 hover:text-gray-200 font-bold py-3 px-8 rounded-xl transition duration-300 w-[200px] text-center">Vezi Produsele</a>
-            </div>
-        </div>
-    </section>
+    <x-header-slider />
 
     <!-- Section Wrapper -->
     <section class="relative bg-gray-200 py-12">
