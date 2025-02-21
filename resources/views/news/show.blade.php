@@ -48,7 +48,7 @@
 
 
     
-    <section class="relative pb-20 bg-gray-300 ">
+    <section class="relative pb-20 bg-white ">
 
         <div class="container max-w-6xl mx-auto carousel-container p-6">
 
