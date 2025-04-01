@@ -6,7 +6,6 @@
     
 
     <header class="container max-w-6xl mx-auto relative py-16 ">
-
         <!-- Post Thumbnail -->
         <div class="min-h-80">
             <img class="w-full h-auto object-cover border border-gray-500 shadow-lg" src="{{ asset('uploads/' . $post->featured_image) }}" alt="{{ $post->title }}">
@@ -22,7 +21,7 @@
 
                     <!-- Title -->
                     <h1 class="text-5xl font-bold text-gray-900 text-center py-8">
-                        Culorile noi si modelele originale, imbogatesc colectia Realstone Argent / Ragno
+                        {{ $post->title }}
                     </h1>
 
                     <!-- Meta Information -->

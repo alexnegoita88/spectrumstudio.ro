@@ -10,13 +10,17 @@
             <h2 class="text-4xl font-bold mb-10 text-center">Despre Noi</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-white p-6 shadow rounded">
-                    <img src="{{ asset('images/About_me - DALLE 2025-02-18 21.34.03.webp') }}" alt="">
+                    <img src="{{ asset('images/Iulia.jpg') }}" alt="">
                 </div>
                 <div class="bg-white p-6 shadow rounded flex items-center flex-col justify-center">
-                    <h3 class="text-3xl font-semibold mb-4">Our Vision</h3>
+                    <h3 class="text-3xl font-semibold mb-4">Fondator</h3>
                     <p>
-                        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+                        Sunt Iulia Andreea Bulea, fondator Spectrum Studio SRL - o companie dedicata amenajarilor interioare pentru spatii rezidentiale si comerciale.  
                     </p>
+                    <p>
+                        Cu o diploma in scenografie si o experienta de 17 ani in domeniul vanzarilor de amenajari interioare, aduc o perspectiva artistica si tehnica in fiecare proiect. Sunt pasionata de design si colaborez cu o echipa de arhitecti pentru a transforma viziunea clientilor in realitate.
+                    </p>
+
                 </div>
             </div>
         </div>

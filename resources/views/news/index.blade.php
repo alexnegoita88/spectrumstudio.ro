@@ -5,7 +5,7 @@
 @section('content')
 
     <!-- Section Header -->
-    <header class="w-full bg-cover bg-center relative" style="background-image: url({{ asset('images/' . 'noutati-studio-ceramica.jpg') }});">
+    <header class="w-full bg-cover bg-center relative" style="background-image: url({{ asset('images/Noutati.avif') }});">
         <!-- Overlay for better text visibility -->
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="relative z-10 flex items-center justify-center h-80">
@@ -29,7 +29,7 @@
                         <header class="mb-4">
                             <h2 class="mt-2">
                                 <a href="{{ route('news_show', $post->slug) }}" class="duration-500 text-2xl font-bold hover:text-gray-600">
-                                    Pereti si pardoseli din gresie portelanata made in FLORIM
+                                {{ $post->title }}
                                 </a>
                             </h2>
                             <div class="text-sm text-gray-500 mt-2">
