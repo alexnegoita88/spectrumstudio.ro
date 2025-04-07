@@ -124,10 +124,9 @@
     <div class="grid grid-cols-1 md:grid-cols-2 text-center h-1/2 border-t md:border-t-0">
         <!-- First Column -->
         <div class="bg-gray-300 flex flex-col justify-center items-center">
-            <h3 class="text-3xl font-bold mb-4">Conectează-te cu social media</h3>
-            <a href="#"
-                class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">FOLLOW
-                ON INSTAGRAM</a>
+            <h3 class="text-3xl font-bold mb-4">Conectează-te cu noi</h3>
+            <a href="{{ route('contact') }}"
+                class="duration-300 font-bold bg-gray-800 hover:bg-gray-600 text-gray-300 hover:text-gray-200 rounded-lg p-4">CONTACTEAZA-NE</a>
         </div>
         <!-- Second Column -->
         <div class="bg-white bg-cover bg-center bg-no-repeat"
