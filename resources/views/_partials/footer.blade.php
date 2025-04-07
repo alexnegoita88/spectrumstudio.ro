@@ -27,8 +27,10 @@
 
                 <!-- Section 3 -->
                 <div class="flex-1 text-center">
+                    {{--
                     <h2 class="text-white text-xl font-bold mb-4">Social</h2>
                     <div class="flex justify-center space-x-4">
+                        
                         <a 
                             href="https://www.facebook.com/" 
                             aria-label="Facebook" 
@@ -54,6 +56,7 @@
                             </svg>
                         </a>
                     </div>
+                    --}}
                 </div>
             </div>
         </div>

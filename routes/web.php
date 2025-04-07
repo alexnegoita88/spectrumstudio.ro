@@ -60,6 +60,6 @@ Route::get('search', [SearchController::class,'search'])->name('search');
 
 
 
-Route::get('test', function () {
-    return view('emails.contact_client', ['content' => '', 'name' => 'Alex']);
-});
+// Route::get('test', function () {
+//     return view('emails.contact_client', ['content' => '', 'name' => 'Alex']);
+// });
