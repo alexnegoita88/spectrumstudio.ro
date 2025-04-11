@@ -84,8 +84,11 @@
 
     <!-- Related Products (Optional) -->
     @if($relatedProducts->isNotEmpty())
+
+        <hr class="my-10">
+
         <section class="mt-10">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6">Related Products</h2>
+            <h2 class="text-3xl font-bold text-gray-800 mb-6">Produse sugerate</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 @foreach($relatedProducts as $relatedProduct)
                     <div class="bg-white rounded-sm shadow-sm p-4">
