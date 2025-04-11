@@ -51,12 +51,10 @@
     <section class="border-t">
         <div class="container max-w-6xl p-6 mx-auto">
 
-            <h1 class="text-4xl mx-auto text-center font-bold pt-10 pb-2">Contactează-ne</h1>
+            <h1 class="text-4xl mx-auto text-center font-bold pt-10 pb-2 my-6">Contactează-ne</h1>
 
-            <hr>
+            <hr class="my-6">
 
-            <p class="text-center text-lg mt-6 text-gray-600">Deci, Daaa! Formularul ăsta funcționează!</p>
-            <p class="text-center text-md mb-6 text-gray-600">Scrie-ne cu încredere! Chiar răspundem.</p>
             
             <div class="container pb-10 pt-4">
                 <form id="SpectrumStudioContactForm" action="{{ route('contact.submit') }}" method="POST">
@@ -66,7 +64,7 @@
                     <div class="flex gap-4 mb-4">
                         <!-- Name Field -->
                         <div class="w-1/2">
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name*</label>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Nume*</label>
                             <input type="text" name="name" id="name" class="mt-1 h-9 p-2 block w-full rounded-md border-gray-300 shadow-sm" value="{{ old('name') }}" >
                             <span class="text-red-500 text-sm error-message" id="nameError"></span>
                         </div>
@@ -81,7 +79,7 @@
 
                     <!-- Message Field -->
                     <div class="mb-4">
-                        <label for="message" class="block text-sm font-medium text-gray-700">Message*</label>
+                        <label for="message" class="block text-sm font-medium text-gray-700">Mesaj*</label>
                         <textarea name="message" id="message" rows="5" class="mt-1 p-2 block w-full rounded-md border-gray-300 shadow-sm" >{{ old('message') }}</textarea>
                         <span class="text-red-500 text-sm error-message" id="messageError"></span>
                     </div>
