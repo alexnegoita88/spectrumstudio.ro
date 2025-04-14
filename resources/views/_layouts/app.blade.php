@@ -8,10 +8,11 @@
     <meta name="description" content="Spectrum Studio - Importator direct de materiale de finisare de înaltă calitate.">
     <meta name="author" content="Spectrum Studio">
 
-
+    @if(env('APP_ENV') == 'local')
     <meta name="robots" content="noindex, nofollow">
     {{-- to change attribute to 'index, follow' --}}
-
+    @endif
+    
     <title>@yield('title', 'SpectrumStudio')</title>
 
     <!-- Favicon for various browsers -->
