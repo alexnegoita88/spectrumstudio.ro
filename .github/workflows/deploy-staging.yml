@@ -23,11 +23,12 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "
             cd ${{ secrets.STAGING_PATH }} &&
-            git init &&
-            git remote add origin https://github.com/alexnegoita88/spectrumstudio.ro.git || true &&
+            git init || true &&
+            # ATENȚIE: Am schimbat URL-ul de la https:// la git@github.com:
+            git remote add origin git@github.com:alexnegoita88/spectrumstudio.ro.git || git remote set-url origin git@github.com:alexnegoita88/spectrumstudio.ro.git &&
             git fetch origin &&
             git checkout ${{ github.ref_name }} &&
-            git pull origin ${{ github.ref_name }} &&
+            git pull origin ${{ github.ref_name }} --force &&
             composer install --no-interaction --prefer-dist --optimize-autoloader --no-dev &&
             php artisan optimize:clear &&
             php artisan migrate --force
