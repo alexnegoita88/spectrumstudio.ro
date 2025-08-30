@@ -23,6 +23,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} "
             cd ${{ secrets.STAGING_PATH }} &&
+            git init &&
+            git remote add origin https://github.com/alexnegoita88/spectrumstudio.ro.git || true &&
             git fetch origin &&
             git checkout ${{ github.ref_name }} &&
             git pull origin ${{ github.ref_name }} &&
