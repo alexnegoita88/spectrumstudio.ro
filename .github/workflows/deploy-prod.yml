@@ -1,0 +1,54 @@
+name: Deploy to Production (spectrumstudio.ro)
+
+on:
+  push:
+    branches:
+      - 'main' # Rulează DOAR pentru branch-ul main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Pasii de build sunt identici cu cei de la staging
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, dom, fileinfo
+          coverage: none
+      - name: Install Composer Dependencies
+        run: composer install --prefer-dist --no-progress --no-dev
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install NPM Dependencies
+        run: npm install
+      - name: Build Assets
+        run: npm run build
+
+      # Aici se face deploy in folderul de productie
+      - name: Deploy to Production Server
+        uses: easingthemes/ssh-deploy@v5.0.0
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "--delete --exclude=.git* --exclude=.env --exclude=node_modules"
+          SOURCE: "/"
+          REMOTE_HOST: ${{ secrets.SSH_HOST }}
+          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
+          TARGET: ${{ secrets.PRODUCTION_PATH }} # Foloseste calea catre productie
+
+      # Aici se ruleaza comenzile finale in folderul de productie
+      - name: Run Final Commands on Production Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd ${{ secrets.PRODUCTION_PATH }}
+            /usr/local/bin/ea-php82 artisan optimize
+            /usr/local/bin/ea-php82 artisan migrate --force
+            /usr/local/bin/ea-php82 artisan storage:link || true
