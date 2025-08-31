@@ -9,54 +9,31 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # Pasul 1: Descarcam codul din repository
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Pasul 2: Setup PHP si Composer
-      - name: Setup PHP
-        uses: shivammathur/setup-php@v2
-        with:
-          php-version: '8.2'
-          extensions: mbstring, dom, fileinfo, sqlite3 # Adauga extensiile necesare proiectului
-          coverage: none
-
-      - name: Install Composer Dependencies
-        run: composer install --prefer-dist --no-progress --no-dev
-
-      # Pasul 3: Setup Node.js si compilam asset-urile (Vite)
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18' # Sau versiunea pe care o folosesti local
-
-      - name: Install NPM Dependencies
-        run: npm install
-
-      - name: Build Assets
-        run: npm run build
-
-      # Pasul 4: Trimitem totul pe server folosind rsync (metoda recomandata)
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v5.0.0
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "--delete --exclude=.git* --exclude=.env --exclude=node_modules"
-          SOURCE: "/"
-          REMOTE_HOST: ${{ secrets.SSH_HOST }}
-          REMOTE_USER: ${{ secrets.SSH_USERNAME }}
-          TARGET: ${{ secrets.STAGING_PATH }}
-
-      # Pasul 5: Rulam comenzile finale pe server (migrate, cache, etc.)
-      - name: Run Final Commands on Server
+      - name: Deploy and Build on Staging Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            # Navighează la folderul de staging
             cd ${{ secrets.STAGING_PATH }}
+            
+            # --- Pasii de Sincronizare GIT ---
+            git fetch origin --prune
+            git checkout ${{ github.ref_name }} || git checkout -b ${{ github.ref_name }} origin/${{ github.ref_name }}
+            git reset --hard origin/${{ github.ref_name }}
+            
+            # --- Pasii de Build (direct pe server) ---
+            
+            # Activează NVM pentru a folosi Node.js și NPM
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+            
+            # Rulează comenzile
+            /usr/local/bin/ea-php82 /usr/local/bin/composer install --no-dev --optimize-autoloader
+            npm install
+            npm run build
             /usr/local/bin/ea-php82 artisan optimize:clear
             /usr/local/bin/ea-php82 artisan migrate --force
-            # (Optional) Creaza link-ul pentru storage, daca e necesar
-            /usr/local/bin/ea-php82 artisan storage:link || true 
+            /usr/local/bin/ea-php82 artisan storage:link || true
