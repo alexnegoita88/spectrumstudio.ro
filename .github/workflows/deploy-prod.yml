@@ -9,31 +9,33 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy and Build on Production Server
+      - name: Deploy to Production Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "--- Starting Deployment to Production ---"
+            
             # Navighează la folderul de productie
             cd ${{ secrets.PRODUCTION_PATH }}
             
-            # --- Pasii de Sincronizare GIT ---
-            # Se asigură că este pe branch-ul main și trage ultimele modificări
+            # --- Actualizează Codul ---
             git checkout main
             git pull origin main
             
-            # --- Pasii de Build (direct pe server) ---
+            # --- Rulează Comenzile de Build pe Server ---
             
-            # Activează NVM pentru a folosi Node.js și NPM
+            # Activează NVM
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             
-            # Rulează comenzile
+            echo "Installing dependencies and building assets..."
             /usr/local/bin/ea-php82 /usr/local/bin/composer install --no-dev --optimize-autoloader
             npm install
             npm run build
+            
+            echo "Running final Laravel commands..."
             /usr/local/bin/ea-php82 artisan optimize
             /usr/local/bin/ea-php82 artisan migrate --force
-            /usr/local/bin/ea-php82 artisan storage:link || true
