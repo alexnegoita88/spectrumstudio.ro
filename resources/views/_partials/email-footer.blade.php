@@ -26,8 +26,7 @@
                      </tr>
                      <tr>
                         <td style="padding:0in 0in 0in 0in;padding-bottom:2rem">
-                           <p class="MsoNormal" align="center" style="margin-bottom:12.0pt;text-align:center"><b><span style="color:white"><a href="tel:+40734774615" style="text-decoration:none"><span style="font-size:15.0pt;font-family:Arial,sans-serif;color:white;text-decoration:none">0734.774.615</span></a><br><br><a href="mailto:contact@spectrumstudio.ro" style="text-decoration:none"><span style="font-size:15.0pt;font-family:Arial,sans-serif;color:white;text-decoration:none">contact@spectrumstudio.ro</span></a>
-                                 </span></b></p>
+                           <p class="MsoNormal" align="center" style="margin-bottom:12.0pt;text-align:center"><b><span style="color:white"><a href="tel:+40734774615" style="text-decoration:none"><span style="font-size:15.0pt;font-family:Arial,sans-serif;color:white;text-decoration:none">0734.774.615</span></a><br><br><a href="mailto:contact@spectrumstudio.ro" style="text-decoration:none"><span style="font-size:15.0pt;font-family:Arial,sans-serif;color:white;text-decoration:none">contact@spectrumstudio.ro</span></a></span></b></p>
                         </td>
                      </tr>
                   </tbody>
