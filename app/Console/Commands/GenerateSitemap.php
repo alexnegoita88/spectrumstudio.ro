@@ -40,53 +40,9 @@ class GenerateSitemap extends Command
              return Command::FAILURE;
         }
 
-        // Definește calea fișierului sitemap *potențial* existent
-        // Folosim un model generic aici pentru verificare, înainte de a crea cel cu data curentă
-        // Presupunem că vrei să ștergi *orice* sitemap mai vechi de o lună, indiferent de data din nume.
-        // Dacă vrei să ștergi DOAR fișierul cu o anumită dată, logica e mai complexă.
-        // Aici vom căuta *toate* fișierele `sitemap_*.xml` și le vom șterge dacă sunt > 1 lună.
-
-        $sitemapDirectory = public_path('/'); // Directorul public
-        $sitemapFilePattern = 'sitemap_*.xml'; // Modelul numelui fișierului
-
-        $oneWeekAgoTimestamp = Carbon::now()->subWeek()->timestamp;
-
-        // Găsește toate fișierele sitemap existente care se potrivesc modelului
-        $existingSitemaps = File::glob($sitemapDirectory . $sitemapFilePattern);
-
-        if (!empty($existingSitemaps)) {
-            $this->info('Checking for old sitemap files...');
-            foreach ($existingSitemaps as $existingSitemapPath) {
-                try {
-                    // Verifică dacă fișierul există (glob poate returna căi chiar dacă sunt șterse între timp)
-                    if (File::exists($existingSitemapPath)) {
-                        $fileLastModifiedTimestamp = File::lastModified($existingSitemapPath);
-
-                        // Compară timestamp-ul fișierului cu cel de acum o saptamana
-                        if ($fileLastModifiedTimestamp < $oneWeekAgoTimestamp) {
-                            File::delete($existingSitemapPath);
-                            $deletedFileName = basename($existingSitemapPath);
-                            $this->warn("Deleted old sitemap file (older than 1 week): {$deletedFileName}");
-                            Log::info("Deleted old sitemap file: {$existingSitemapPath}");
-                        } else {
-                             Log::debug("Keeping sitemap file (not older than 1 week): " . basename($existingSitemapPath));
-                        }
-                    }
-                } catch (\Exception $e) {
-                    $this->error("Failed to check or delete old sitemap file '{$existingSitemapPath}': " . $e->getMessage());
-                    Log::error("Failed to check or delete old sitemap file '{$existingSitemapPath}': " . $e->getMessage());
-                    // Continuăm cu celelalte fișiere vechi și cu generarea noului sitemap
-                }
-            }
-        } else {
-             $this->info('No existing sitemap files found matching pattern.');
-             Log::info('No existing sitemap files found matching pattern.');
-        }
-
-
-        // --- Generarea noului Sitemap (codul tău existent) ---
-        // Definește calea EXACTĂ pentru noul fișier sitemap
-        $newSitemapPath = public_path('sitemap_' . date('Y_m_d') . '.xml');
+        // --- Generarea noului Sitemap ---
+        // Definește calea pentru fișierul sitemap (va fi suprascris de fiecare dată)
+        $newSitemapPath = public_path('sitemap.xml');
 
         $this->info("Generating new sitemap via crawler for {$appUrl}...");
         Log::info("Generating new sitemap via crawler at: {$newSitemapPath}"); // Folosim noua cale
