@@ -9,31 +9,34 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy and Build on Staging Server
+      - name: Deploy to Staging Server
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            echo "--- Starting Deployment to Staging for branch ${{ github.ref_name }} ---"
+            
             # Navighează la folderul de staging
             cd ${{ secrets.STAGING_PATH }}
             
-            # --- Pasii de Sincronizare GIT ---
+            # --- Actualizează Codul ---
             git fetch origin --prune
             git checkout ${{ github.ref_name }} || git checkout -b ${{ github.ref_name }} origin/${{ github.ref_name }}
-            git reset --hard origin/${{ github.ref_name }}
+            git pull origin ${{ github.ref_name }}
             
-            # --- Pasii de Build (direct pe server) ---
+            # --- Rulează Comenzile de Build pe Server ---
             
-            # Activează NVM pentru a folosi Node.js și NPM
+            # Activează NVM
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
             
-            # Rulează comenzile
+            echo "Installing dependencies and building assets..."
             /usr/local/bin/ea-php82 /usr/local/bin/composer install --no-dev --optimize-autoloader
             npm install
             npm run build
+            
+            echo "Running final Laravel commands..."
             /usr/local/bin/ea-php82 artisan optimize:clear
             /usr/local/bin/ea-php82 artisan migrate --force
-            /usr/local/bin/ea-php82 artisan storage:link || true
