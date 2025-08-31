@@ -11,7 +11,7 @@
         <!-- Overlay for better text visibility -->
         <div class="absolute inset-0"></div>
         <div class="relative z-10 flex items-center justify-center h-80">
-            <h2 class="text-6xl font-bold text-center">Termeni si conditii...</h2>
+            <h2 class="text-6xl font-bold text-center">Termeni si conditii</h2>
         </div>
     </header>
 
