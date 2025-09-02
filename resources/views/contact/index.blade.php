@@ -93,6 +93,14 @@
                         <span class="text-red-500 text-sm error-message" id="termsError"></span>
                     </div>
 
+                    <!-- reCAPTCHA -->
+                    <div class="mb-4">
+                        <div class="g-recaptcha" data-sitekey="{{ config('captcha.sitekey') }}"></div>
+                        @if ($errors->has('g-recaptcha-response'))
+                            <span class="text-red-500 text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
+                        @endif
+                    </div>
+
                     <!-- Submit Button -->
                     <div class="mt-6">
                         <button type="submit" class="px-4 py-2 bg-gray-700 text-white rounded-md shadow-sm hover:bg-gray-600">Trimite</button>

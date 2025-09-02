@@ -35,12 +35,15 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
                 'message' => 'required|string|max:5000',
                 'terms' => 'accepted',
+                'g-recaptcha-response' => 'required|captcha',
             ], [
                 'required' => 'Camp obligatoriu',
                 'string' => 'Caractere alfanumerice',
                 'max' => 'Maxim :max caractere',
                 'email' => 'Adresa de email invalida',
-                'terms' => 'Trebuie sa fi de acord cu termenii si conditiile'
+                'terms' => 'Trebuie sa fi de acord cu termenii si conditiile',
+                'g-recaptcha-response.required' => 'Te rugăm să completezi reCAPTCHA',
+                'g-recaptcha-response.captcha' => 'Verificarea reCAPTCHA a eșuat',
             ]);
 
 
