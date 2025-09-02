@@ -103,7 +103,16 @@
 
                     <!-- Submit Button -->
                     <div class="mt-6">
-                        <button type="submit" id="submit-btn" class="px-4 py-2 bg-gray-700 text-white rounded-md shadow-sm hover:bg-gray-600">Trimite</button>
+                        <button type="submit" id="submit-btn" class="px-4 py-2 bg-gray-700 text-white rounded-md shadow-sm hover:bg-gray-600 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200">
+                            <span id="button-text">Trimite</span>
+                            <span id="loading-spinner" class="hidden">
+                                <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Se trimite...
+                            </span>
+                        </button>
                     </div>
                 </form>
                 @vite('resources/js/contact_validation.js')
@@ -113,16 +122,66 @@
                     document.addEventListener('DOMContentLoaded', function() {
                         const form = document.getElementById('SpectrumStudioContactForm');
                         const submitBtn = document.getElementById('submit-btn');
+                        const buttonText = document.getElementById('button-text');
+                        const loadingSpinner = document.getElementById('loading-spinner');
+                        let isSubmitting = false;
+                        
+                        // Funcție pentru a activa loading state
+                        function setLoadingState() {
+                            if (isSubmitting) return; // Previne multiple activări
+                            
+                            isSubmitting = true;
+                            submitBtn.disabled = true;
+                            buttonText.classList.add('hidden');
+                            loadingSpinner.classList.remove('hidden');
+                        }
+                        
+                        // Funcție pentru a dezactiva loading state (în caz de eroare)
+                        function resetLoadingState() {
+                            isSubmitting = false;
+                            submitBtn.disabled = false;
+                            buttonText.classList.remove('hidden');
+                            loadingSpinner.classList.add('hidden');
+                        }
                         
                         form.addEventListener('submit', function(e) {
                             e.preventDefault();
                             
+                            // Previne multiple submit-uri
+                            if (isSubmitting) {
+                                return false;
+                            }
+                            
+                            // Verifică validitatea formularului
+                            if (!form.checkValidity()) {
+                                form.reportValidity();
+                                return false;
+                            }
+                            
+                            // Activează loading state
+                            setLoadingState();
+                            
                             grecaptcha.ready(function() {
                                 grecaptcha.execute('{{ config('captcha.sitekey') }}', {action: 'contact_form'}).then(function(token) {
                                     document.getElementById('g-recaptcha-response').value = token;
-                                    form.submit();
+                                    
+                                    // Submit-ul se face după un mic delay pentru a se vedea loading-ul
+                                    setTimeout(function() {
+                                        form.submit();
+                                    }, 100);
+                                }).catch(function(error) {
+                                    console.error('reCAPTCHA error:', error);
+                                    resetLoadingState();
+                                    alert('A apărut o eroare cu reCAPTCHA. Te rugăm să încerci din nou.');
                                 });
                             });
+                        });
+                        
+                        // Reset loading state dacă utilizatorul navighează înapoi
+                        window.addEventListener('pageshow', function(event) {
+                            if (event.persisted) {
+                                resetLoadingState();
+                            }
                         });
                     });
                 </script>

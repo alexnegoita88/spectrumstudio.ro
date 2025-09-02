@@ -17,7 +17,7 @@
         </tr>
         <tr align="center" width="570" height="100">
             <td style="text-align:center; font-size:18px;">
-                Am primit mesajul tau trimis prin interamediul formularului de contact de pe site-ul nostru.
+                Am primit mesajul tau trimis prin intermediul formularului de contact de pe site-ul nostru.
             </td>
         </tr>
         <tr align="center" width="570" height="100">
