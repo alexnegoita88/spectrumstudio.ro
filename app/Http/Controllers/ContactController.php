@@ -7,6 +7,7 @@ use App\Models\FormSubmission;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
 
 class ContactController extends Controller
@@ -35,12 +36,15 @@ class ContactController extends Controller
                 'email' => 'required|email|max:255',
                 'message' => 'required|string|max:5000',
                 'terms' => 'accepted',
+                'g-recaptcha-response' => 'required|captcha',
             ], [
                 'required' => 'Camp obligatoriu',
                 'string' => 'Caractere alfanumerice',
                 'max' => 'Maxim :max caractere',
                 'email' => 'Adresa de email invalida',
-                'terms' => 'Trebuie sa fi de acord cu termenii si conditiile'
+                'terms' => 'Trebuie sa fi de acord cu termenii si conditiile',
+                'g-recaptcha-response.required' => 'Te rugăm să completezi reCAPTCHA',
+                'g-recaptcha-response.captcha' => 'Verificarea reCAPTCHA a eșuat',
             ]);
 
 
@@ -54,18 +58,55 @@ class ContactController extends Controller
             
             // Admin email
             foreach (User::all() as $user) {
-                Mail::send('emails.contact_admin', ['data' => $submission, 'content' => "Un utilizator a completat formularul de contact din site.", 'name' => $user->name], function ($message) use ($user) {
-                    $message->to($user->email)
-                        ->subject('New submission from Contact Form'  );
-                });
+                try {
+                    Mail::send('emails.contact_admin', ['data' => $submission, 'content' => "Un utilizator a completat formularul de contact din site.", 'name' => $user->name], function ($message) use ($user) {
+                        $message->to($user->email)
+                            ->subject('New submission from Contact Form');
+                    });
+                    
+                    Log::info('Email trimis cu succes către admin', [
+                        'recipient' => $user->email,
+                        'type' => 'contact_admin',
+                        'submission_id' => $submission->id,
+                        'sender_name' => $request->name,
+                        'sender_email' => $request->email
+                    ]);
+                } catch (\Exception $e) {
+                    Log::error('Eroare la trimiterea email-ului către admin', [
+                        'recipient' => $user->email,
+                        'type' => 'contact_admin',
+                        'submission_id' => $submission->id,
+                        'error' => $e->getMessage(),
+                        'sender_name' => $request->name,
+                        'sender_email' => $request->email
+                    ]);
+                }
             }
 
 
 
-            Mail::send('emails.contact_client', ['name' => $request->name, 'content' => "Multumim pentru vizita pe site-ul nostru"], function ($message) use ($request) {
-                $message->to($request->email)
-                    ->subject(env('APP_NAME') . ' - Solicitare in procesare'  );
-            });
+            // Client email
+            try {
+                Mail::send('emails.contact_client', ['name' => $request->name, 'content' => "Multumim pentru vizita pe site-ul nostru"], function ($message) use ($request) {
+                    $message->to($request->email)
+                        ->subject(env('APP_NAME') . ' - Solicitare in procesare');
+                });
+                
+                Log::info('Email de confirmare trimis cu succes către client', [
+                    'recipient' => $request->email,
+                    'type' => 'contact_client',
+                    'submission_id' => $submission->id,
+                    'client_name' => $request->name
+                ]);
+            } catch (\Exception $e) {
+                Log::error('Eroare la trimiterea email-ului de confirmare către client', [
+                    'recipient' => $request->email,
+                    'type' => 'contact_client',
+                    'submission_id' => $submission->id,
+                    'error' => $e->getMessage(),
+                    'client_name' => $request->name
+                ]);
+            }
 
 
             return redirect()->route('contact')->with('success', 'Îți mulțumim pentru mesaj! Vom reveni cu un răspuns în curând.');

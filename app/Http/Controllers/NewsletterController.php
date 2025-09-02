@@ -8,9 +8,15 @@ use Illuminate\Http\Request;
 class NewsletterController extends Controller
 {
     public function subscribe(Request $request) {
-        // Validate the email field
+        // Validate the email field and reCAPTCHA
         $request->validate([
             'email' => 'required|email',
+            'g-recaptcha-response' => 'required|captcha',
+        ], [
+            'email.required' => 'Adresa de email este obligatorie',
+            'email.email' => 'Adresa de email nu este validă',
+            'g-recaptcha-response.required' => 'Te rugăm să completezi reCAPTCHA',
+            'g-recaptcha-response.captcha' => 'Verificarea reCAPTCHA a eșuat',
         ]);
 
         // Check if the email exists in the database

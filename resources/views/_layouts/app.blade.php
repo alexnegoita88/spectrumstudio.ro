@@ -75,6 +75,9 @@
 
 
     @vite('resources/css/app.css')
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('captcha.sitekey') }}"></script>
 
 </head>
 

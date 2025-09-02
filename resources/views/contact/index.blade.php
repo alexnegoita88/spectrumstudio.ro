@@ -93,12 +93,39 @@
                         <span class="text-red-500 text-sm error-message" id="termsError"></span>
                     </div>
 
+                    <!-- reCAPTCHA v3 (hidden field) -->
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
+                    @if ($errors->has('g-recaptcha-response'))
+                        <div class="mb-4">
+                            <span class="text-red-500 text-sm">{{ $errors->first('g-recaptcha-response') }}</span>
+                        </div>
+                    @endif
+
                     <!-- Submit Button -->
                     <div class="mt-6">
-                        <button type="submit" class="px-4 py-2 bg-gray-700 text-white rounded-md shadow-sm hover:bg-gray-600">Trimite</button>
+                        <button type="submit" id="submit-btn" class="px-4 py-2 bg-gray-700 text-white rounded-md shadow-sm hover:bg-gray-600">Trimite</button>
                     </div>
                 </form>
                 @vite('resources/js/contact_validation.js')
+
+                <!-- reCAPTCHA v3 Script -->
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        const form = document.getElementById('SpectrumStudioContactForm');
+                        const submitBtn = document.getElementById('submit-btn');
+                        
+                        form.addEventListener('submit', function(e) {
+                            e.preventDefault();
+                            
+                            grecaptcha.ready(function() {
+                                grecaptcha.execute('{{ config('captcha.sitekey') }}', {action: 'contact_form'}).then(function(token) {
+                                    document.getElementById('g-recaptcha-response').value = token;
+                                    form.submit();
+                                });
+                            });
+                        });
+                    });
+                </script>
 
             </div>
         </div>

@@ -6,6 +6,7 @@
     "license": "MIT",
     "require": {
         "php": "^8.2",
+        "anhskohbo/no-captcha": "^3.7",
         "barryvdh/laravel-debugbar": "^3.13",
         "filament/filament": "3.*",
         "laravel/framework": "^11.9",
